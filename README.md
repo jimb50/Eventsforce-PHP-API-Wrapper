@@ -34,8 +34,8 @@ Another way to use the class is to pass in an event id initially when you instan
 
 ``` php
 $ef = new EFAuth(array(
-    'key' => 'NON BLANKED KEY',
-    'client' => 'CLIENT SLUG',
+    'key' => '035E0A65508A4D8FAB63A983F36ACCAC', // non blanked key
+    'client' => 'apiexample' // client slug
     'eventid' => 2
 ));
 
