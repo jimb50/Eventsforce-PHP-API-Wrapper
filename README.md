@@ -27,8 +27,10 @@ The resources are split as shown on the [api docs](http://docs.eventsforce.apiar
 E.g to access [events get all](http://docs.eventsforce.apiary.io/#reference/events/eventsjson/get) you would do the following:
 
 ```php
-$json = $client->events->getAll();
+$stream = $client->events->getAll();
 ```
+
+The response is a \Psr\Http\Message\StreamInterface
 
 Usage - Full method map
 ------
