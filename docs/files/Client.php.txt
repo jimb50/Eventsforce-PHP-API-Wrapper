@@ -3,55 +3,105 @@
 namespace EventsForce;
 
 use EventsForce\Exceptions\InvalidArgumentException;
+use EventsForce\Resources\Events;
+use GuzzleHttp\Client as GuzzleClient;
 
 class Client
 {
+
     /**
      * The first part of the eventsforce api endpoint uri
      * together: $ef_uri . {client_slug} . $ef_api_endpoint;
+     *
      * @var string
      */
-    private static $ef_uri = 'https://www.eventsforce.net/';
+    private static $efUri = 'https://www.eventsforce.net/';
+
 
     /**
      * The second part of the eventsforce api endpoint uri
      * together: $ef_uri . {client_slug} . $ef_api_endpoint;
+     *
      * @var string
      */
-    private static $ef_api_endpoint = '/api/v2';
+    private static $efApiEndpoint = '/api/v2';
+
 
     /**
+     * Store the blanked api key
+     *
      * @var string
      */
-    private $api_key = '';
+    private $apiKey = '';
+
 
     /**
+     * Store the client slug
+     *
      * @var string
      */
-    private $client_slug = '';
+    private $clientSlug = '';
+
+    /**
+     * Instance of our Guzzle Client
+     *
+     * @var object
+     */
+    private $client;
+
+
+    /**
+     * Instance of Events resource class \EventsForce\Resources\Events
+     *
+     * @var object
+     */
+    public $events;
 
 
     /**
      * Client constructor.
+     *
      * @param $client_slug
      * @param string $api_key_unblanked
      * @throws InvalidArgumentException
      */
     public function __construct($client_slug = '', $api_key_unblanked = '')
     {
+
         if (false === is_string($client_slug) || true === empty($client_slug)) {
             throw new InvalidArgumentException('You must pass an EventsForce client slug (can be found in your EventsForce dashboard url)');
         }
+
         if (false === is_string($api_key_unblanked) || true === empty($api_key_unblanked)) {
             throw new InvalidArgumentException('You must pass an EventsForce API Key');
         }
 
-        $this->api_key = Client::blankKey($api_key_unblanked);
-        $this->client_slug = $client_slug;
+        $this->apiKey = Client::blankKey($api_key_unblanked);
+        $this->clientSlug = $client_slug;
+
+        $this->client = new GuzzleClient([
+            'base_uri' => Client::$efUri . $this->clientSlug . Client::$efApiEndpoint . '/',
+            'headers'    => [
+                'Authorization' => 'Basic ' . $this->apiKey,
+                'Content-Type'  => 'application/json'
+            ]
+        ]);
+
+        $this->bootstrapResources();
     }
 
     /**
-     * method to blank a string passed in
+     * Method that bootstraps our resources
+     */
+    private function bootstrapResources()
+    {
+        $this->events = new Events($this);
+    }
+
+    /**
+     * A method that blanks a key passed in
+     * The events force api expects a blanked key
+     *
      * @param $key
      * @return string
      */
@@ -61,17 +111,14 @@ class Client
     }
 
     /**
-     * method to merge array of arguments with defaults
-     * @param $args - passed in arguments
-     * @param $defaults - default argument array to merge with
-     * @return array
+     * Method that creates a Request instance (EventsForce\Request)
+     *
+     * @param $parameters
+     * @return Request
      */
-    private static function argsMerge($args, $defaults)
+    public function request($parameters = [])
     {
-        if (false === is_array($args))
-            $args = array();
-
-        return array_merge($defaults, $args);
+        return new Request($this->client, $parameters);
     }
 }
 
