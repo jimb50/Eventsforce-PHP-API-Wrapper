@@ -1,29 +1,37 @@
-PHP API wrapper for the eventsforce API
+PHP API wrapper for the Events Force API
 ======
 
-A basic PHP wrapper for the eventsforce API methods, providing methods to POST and GET results
+An API client package for the Events Force API.
 For reference to what kind of data you can pass to the API methods refer to the general [API documentation](http://docs.eventsforce.apiary.io/#reference).
+To get a client slug / client account string see [here](http://docs.eventsforce.apiary.io/#introduction/url)
+
+Requirements
+------
+
+* PHP >= 5.5.0
+* [Guzzle](https://github.com/guzzle/guzzle)
 
 
 Usage - General
 ------
 
-``` php
-//Require the class wrapper
-require_once 'events_force_api_wrapper.php';
+Note: The follow examples all use the apiexample credentials as shown [here](http://docs.eventsforce.apiary.io/#introduction/example-data)
 
-//create standard instance of Events force wrapper class
-$ef = new EFAuth(array(
-    'key' => '035E0A65508A4D8FAB63A983F36ACCAC', // non blanked key
-    'client' => 'apiexample' // client slug
-));
+```php
 
-//Then you are ready to call methods such as:
-$ef->get_events();
-$ef->get_event(2);
-$ef->authenticate(2, 'test@example.com', 'adhh322h8flan');
+// Define a new client, passing in the client slug and api key
+$client = new \EventsForce\Client('apiexample', '035E0A65508A4D8FAB63A983F36ACCAC');
 
-//and so on
+```
+
+Now you are ready to use specific resources and methods
+The resources are split as shown on the [api docs](http://docs.eventsforce.apiary.io/#introduction/url)
+E.g to access [events get all](http://docs.eventsforce.apiary.io/#reference/events/eventsjson/get) you would do the following:
+
+```php
+
+$json = $client->events->getAll();=
+
 ```
 
 
