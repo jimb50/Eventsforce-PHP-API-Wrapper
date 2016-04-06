@@ -3,6 +3,7 @@
 namespace EventsForce;
 
 use EventsForce\Exceptions\Exception;
+use GuzzleHttp\Client as GuzzleClient;
 
 /**
  * Class Request
@@ -12,6 +13,13 @@ use EventsForce\Exceptions\Exception;
  */
 class Request
 {
+    /**
+     * The Guzzle client for handling our actual requests
+     *
+     * @var GuzzleClient
+     */
+    private $client;
+
     /**
      * Endpoint for the request
      *
@@ -48,10 +56,13 @@ class Request
     /**
      * Request constructor.
      *
-     * @param $properties
+     * @param GuzzleClient $client
+     * @param array $properties
      */
-    public function __construct($properties = [])
+    public function __construct(GuzzleClient $client, $properties = [])
     {
+        $this->client = $client;
+
         if (is_array($properties) && !empty($properties)) {
             $this->setParameters($properties);
         }
@@ -116,6 +127,7 @@ class Request
 
     public function send()
     {
-
+        $response = $this->client->request($this->method, $this->endpoint);
+        return $response;
     }
 }

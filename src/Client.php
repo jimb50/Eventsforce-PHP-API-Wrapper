@@ -118,6 +118,6 @@ class Client
      */
     public function request($parameters = [])
     {
-        return new Request($parameters);
+        return new Request($this->client, $parameters);
     }
 }
