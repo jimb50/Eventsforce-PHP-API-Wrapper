@@ -10,8 +10,7 @@ namespace EventsForce\Resources;
 class Events extends Base
 {
 
-
-    public function all()
+    public function getAll()
     {
         
     }

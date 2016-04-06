@@ -3,6 +3,7 @@
 namespace EventsForce;
 
 use EventsForce\Exceptions\InvalidArgumentException;
+use EventsForce\Resources\Events;
 use GuzzleHttp\Client as GuzzleClient;
 
 class Client
@@ -14,7 +15,7 @@ class Client
      *
      * @var string
      */
-    private static $ef_uri = 'https://www.eventsforce.net/';
+    private static $efUri = 'https://www.eventsforce.net/';
 
 
     /**
@@ -23,7 +24,7 @@ class Client
      *
      * @var string
      */
-    private static $ef_api_endpoint = '/api/v2';
+    private static $efApiEndpoint = '/api/v2';
 
 
     /**
@@ -31,7 +32,7 @@ class Client
      *
      * @var string
      */
-    private $api_key = '';
+    private $apiKey = '';
 
 
     /**
@@ -39,8 +40,22 @@ class Client
      *
      * @var string
      */
-    private $client_slug = '';
+    private $clientSlug = '';
 
+    /**
+     * Instance of our Guzzle Client
+     *
+     * @var object
+     */
+    private $guzzleClient;
+
+
+    /**
+     * Instance of Events resource class \EventsForce\Resources\Events
+     *
+     * @var object
+     */
+    public $events;
 
 
     /**
@@ -61,16 +76,26 @@ class Client
             throw new InvalidArgumentException('You must pass an EventsForce API Key');
         }
 
-        $this->api_key = Client::blankKey($api_key_unblanked);
-        $this->client_slug = $client_slug;
+        $this->apiKey = Client::blankKey($api_key_unblanked);
+        $this->clientSlug = $client_slug;
 
-        $this->client = new GuzzleClient([
-            'base_uri' => Client::$ef_uri . $this->$client_slug . Client::$ef_api_endpoint,
+        $this->guzzleClient = new GuzzleClient([
+            'base_uri' => Client::$efUri . $this->clientSlug . Client::$efApiEndpoint,
             'headers'    => [
-                'Authorization' => 'Basic ' . $this->api_key,
+                'Authorization' => 'Basic ' . $this->apiKey,
                 'Content-Type'  => 'application/json'
             ]
         ]);
+
+        $this->bootstrapResources();
+    }
+
+    /**
+     * Method that bootstraps our resources
+     */
+    private function bootstrapResources()
+    {
+        $this->events = new Events();
     }
 
     /**
