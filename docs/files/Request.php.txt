@@ -3,6 +3,7 @@
 namespace EventsForce;
 
 use EventsForce\Exceptions\EventsForceException;
+use EventsForce\Exceptions\EmptyResponseException;
 use GuzzleHttp\Client as GuzzleClient;
 
 /**
@@ -50,7 +51,7 @@ class Request
      *
      * @var string
      */
-    private $method = 'get';
+    private $method = 'GET';
 
 
     /**
@@ -125,16 +126,18 @@ class Request
     }
 
 
+    /**
+     * Method to handle sending a request
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws EmptyResponseException
+     */
     public function send()
     {
         $response = $this->client->request($this->method, $this->endpoint);
 
         if (false === $response->hasHeader('Content-Length')) {
-            throw new EventsForceException('No content in response from API');
-        }
-
-        if ('OK' !== $response->getReasonPhrase()) {
-            throw new EventsForceException('Response reasonphrase was not OK, it was: ' . $response->getReasonPhrase());
+            throw new EmptyResponseException('No content in response from API');
         }
 
         $body = $response->getBody();

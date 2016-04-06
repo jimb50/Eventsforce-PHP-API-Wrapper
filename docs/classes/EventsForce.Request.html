@@ -114,12 +114,12 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">14</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">16</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="../reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">2</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">3</span>
                                 </a>
                             </li>
                             <li>
@@ -144,33 +144,34 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-625359895"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-667876183"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-625359895" class="accordion-body collapse in">
+            <div id="namespace-667876183" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1325489220"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-791378911"></a>
                                 <a href="../namespaces/EventsForce.html" style="margin-left: 30px; padding-left: 0">EventsForce</a>
             </div>
-            <div id="namespace-1325489220" class="accordion-body collapse ">
+            <div id="namespace-791378911" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-199850446"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1055753793"></a>
                                 <a href="../namespaces/EventsForce.Exceptions.html" style="margin-left: 30px; padding-left: 0">Exceptions</a>
             </div>
-            <div id="namespace-199850446" class="accordion-body collapse ">
+            <div id="namespace-1055753793" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="../classes/EventsForce.Exceptions.EventsForceException.html">EventsForceException</a></li>
+                                                                                                    <li class="class"><a href="../classes/EventsForce.Exceptions.EmptyResponseException.html">EmptyResponseException</a></li>
+                                                    <li class="class"><a href="../classes/EventsForce.Exceptions.EventsForceException.html">EventsForceException</a></li>
                                                     <li class="class"><a href="../classes/EventsForce.Exceptions.InvalidArgumentException.html">InvalidArgumentException</a></li>
                                             </ul>
                 </div>
@@ -181,10 +182,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-512056429"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-74740019"></a>
                                 <a href="../namespaces/EventsForce.Resources.html" style="margin-left: 30px; padding-left: 0">Resources</a>
             </div>
-            <div id="namespace-512056429" class="accordion-body collapse ">
+            <div id="namespace-74740019" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -606,13 +607,20 @@ To be built up during every request</em></p>
             <article class="method">
                 <h3 class="public ">send()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">send() </pre>
-                <p><em></em></p>
+                <pre class="signature" style="margin-right: 54px;">send() : \Psr\Http\Message\StreamInterface</pre>
+                <p><em>Method to handle sending a request</em></p>
                 
 
                 
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\EventsForce\Exceptions\EmptyResponseException</dt>
+                            <dd></dd>
+                                                                    </dl>
                 
-                				
+                                    <h4>Returns</h4>
+                    \Psr\Http\Message\StreamInterface
+                                    				
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -676,7 +684,7 @@ To be built up during every request</em></p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on April 6th, 2016 at 22:39.
+                    on April 6th, 2016 at 23:12.
                 </section>
             </section>
         </section>
