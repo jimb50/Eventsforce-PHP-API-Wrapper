@@ -29,7 +29,7 @@ class Client
      * @var string
      */
     private $client_slug = '';
-    
+
 
     /**
      * Client constructor.
@@ -48,8 +48,6 @@ class Client
 
         $this->api_key = Client::blankKey($api_key_unblanked);
         $this->client_slug = $client_slug;
-
-
     }
 
     /**
