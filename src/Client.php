@@ -81,6 +81,7 @@ class Client
 
         $this->client = new GuzzleClient([
             'base_uri' => Client::$efUri . $this->clientSlug . Client::$efApiEndpoint . '/',
+            'exceptions' => false,
             'headers'    => [
                 'Authorization' => 'Basic ' . $this->apiKey,
                 'Content-Type'  => 'application/json'
