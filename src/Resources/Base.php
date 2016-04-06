@@ -2,7 +2,14 @@
 
 namespace EventsForce\Resources;
 
+use EventsForce\Client;
+
 abstract class Base
 {
-    // TODO: use Base abstraction
+    protected $client;
+
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+    }
 }

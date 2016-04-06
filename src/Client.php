@@ -47,7 +47,7 @@ class Client
      *
      * @var object
      */
-    private $guzzleClient;
+    private $client;
 
 
     /**
@@ -79,7 +79,7 @@ class Client
         $this->apiKey = Client::blankKey($api_key_unblanked);
         $this->clientSlug = $client_slug;
 
-        $this->guzzleClient = new GuzzleClient([
+        $this->client = new GuzzleClient([
             'base_uri' => Client::$efUri . $this->clientSlug . Client::$efApiEndpoint,
             'headers'    => [
                 'Authorization' => 'Basic ' . $this->apiKey,
@@ -95,7 +95,7 @@ class Client
      */
     private function bootstrapResources()
     {
-        $this->events = new Events();
+        $this->events = new Events($this);
     }
 
     /**
@@ -108,6 +108,17 @@ class Client
     private static function blankKey($key)
     {
         return base64_encode(':' . $key);
+    }
+
+    /**
+     * Method that
+     * @param $endpoint
+     * @param $args
+     * @return Request
+     */
+    public function request($endpoint, $args)
+    {
+        return new Request()->endpoint($endpoint)->setArguments($args);
     }
 
 //    /**

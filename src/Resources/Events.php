@@ -12,6 +12,6 @@ class Events extends Base
 
     public function getAll()
     {
-        
+        $this->client->request('events.json');
     }
 }
