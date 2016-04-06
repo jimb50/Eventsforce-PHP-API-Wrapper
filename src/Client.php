@@ -37,7 +37,7 @@ class Client
      * @param string $api_key_unblanked
      * @throws InvalidArgumentException
      */
-    public function __construct($client_slug, $api_key_unblanked = '')
+    public function __construct($client_slug = '', $api_key_unblanked = '')
     {
         if (false === is_string($client_slug) || true === empty($client_slug)) {
             throw new InvalidArgumentException('You must pass an EventsForce client slug (can be found in your EventsForce dashboard url)');
