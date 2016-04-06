@@ -47,11 +47,28 @@ $client->events->getAll();
 $client->events->get(2); // where 2 is the event id
 ```
 
+####Attendees####
+
+#####[Get all attendees for an event - /events/{event_id}/attendees.json](http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeesjsonlastmodifiedafterpaymentstatuscategoryregistrationstatus/get)#####
+Available parameters:
+* lastModifiedAfter
+* paymentStatus
+* category
+* registrationStatus
+
+```php
+// which one?
+$client->attendees->event(2)->getAll($arguments);
+$client->attendees->getAll(2, $arguments);
+
+// or
+$client->events->event(2)->getAttendees($arguments);
+$client->events->getAttendees(2, $arguments);
+```
+
 
 OLD DOCS BELOW:
 -----
-
-####Attendees####
 
 
 
