@@ -2,7 +2,7 @@
 
 namespace EventsForce;
 
-use EventsForce\Exceptions\Exception;
+use EventsForce\Exceptions\EventsForceException;
 use GuzzleHttp\Client as GuzzleClient;
 
 /**
@@ -107,7 +107,7 @@ class Request
      *
      * @param string $method
      * @return $this
-     * @throws Exception
+     * @throws EventsForceException
      */
     public function setMethod($method = '')
     {
@@ -117,7 +117,7 @@ class Request
         $method = strtoupper($method);
 
         if (!in_array($method, self::$allowedMethods)) {
-            throw new Exception('Only the following request methods are allowed: ' . implode(', ', self::$allowedMethods));
+            throw new EventsForceException('Only the following request methods are allowed: ' . implode(', ', self::$allowedMethods));
         }
 
         $this->method = $method;
@@ -128,6 +128,17 @@ class Request
     public function send()
     {
         $response = $this->client->request($this->method, $this->endpoint);
-        return $response;
+
+        if (false === $response->hasHeader('Content-Length')) {
+            throw new EventsForceException('No content in response from API');
+        }
+
+        if ('OK' !== $response->getReasonPhrase()) {
+            throw new EventsForceException('Response reasonphrase was not OK, it was: ' . $response->getReasonPhrase());
+        }
+
+        $body = $response->getBody();
+
+        return $body;
     }
 }

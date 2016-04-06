@@ -2,7 +2,7 @@
 
 namespace EventsForce\Exceptions;
 
-class Exception extends \Exception
+class EventsForceException extends \Exception
 {
     // TODO: Define standard extended exception
 }
