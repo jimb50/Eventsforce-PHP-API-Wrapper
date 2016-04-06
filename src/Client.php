@@ -111,28 +111,13 @@ class Client
     }
 
     /**
-     * Method that
-     * @param $endpoint
-     * @param $args
+     * Method that creates a Request instance (EventsForce\Request)
+     *
+     * @param $parameters
      * @return Request
      */
-    public function request($endpoint, $args)
+    public function request($parameters = [])
     {
-        return new Request()->endpoint($endpoint)->setArguments($args);
+        return new Request($parameters);
     }
-
-//    /**
-//     * Method to merge array passed in
-//     *
-//     * @param $args - passed in arguments
-//     * @param $defaults - default argument array to merge with
-//     * @return array
-//     */
-//    private static function argsMerge($args, $defaults)
-//    {
-//        if (false === is_array($args))
-//            $args = array();
-//
-//        return array_merge($defaults, $args);
-//    }
 }
