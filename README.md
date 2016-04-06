@@ -18,10 +18,8 @@ Usage - General
 Note: The follow examples all use the apiexample credentials as shown [here](http://docs.eventsforce.apiary.io/#introduction/example-data)
 
 ```php
-
 // Define a new client, passing in the client slug and api key
 $client = new \EventsForce\Client('apiexample', '035E0A65508A4D8FAB63A983F36ACCAC');
-
 ```
 
 Now you are ready to use specific resources and methods
@@ -29,51 +27,30 @@ The resources are split as shown on the [api docs](http://docs.eventsforce.apiar
 E.g to access [events get all](http://docs.eventsforce.apiary.io/#reference/events/eventsjson/get) you would do the following:
 
 ```php
-
-$json = $client->events->getAll();=
-
+$json = $client->events->getAll();
 ```
 
-
-Usage - more specific
+Usage - Full method map
 ------
 
-Another way to use the class is to pass in an event id initially when you instantiate it as below.
+####Events####
 
-``` php
-$ef = new EFAuth(array(
-    'key' => '035E0A65508A4D8FAB63A983F36ACCAC', // non blanked key
-    'client' => 'apiexample' // client slug
-    'eventid' => 2
-));
+#####[Get all - /events.json](http://docs.eventsforce.apiary.io/#reference/events/eventsjson/get)#####
+```php
+$client->events->getAll();
+```
 
-//this allows you to then call methods without passing in an eventID, as you are using a 'default' eventID as standard, you can still pass in an eventID which will override the default for that particular method
-
+#####[Get single - /events/{event_id}.json](http://docs.eventsforce.apiary.io/#reference/events/eventseventidjson/get)
+```php
+$client->events->get(2); // where 2 is the event id
 ```
 
 
+OLD DOCS BELOW:
+-----
 
-Available methods
-------
+####Attendees####
 
-### Event Methods
----
-
-
-#### Get Events
-This doesn't take any parameters and will all the events for the client slug passed in when the class was instantiated
-
-``` php
-$ef->get_events();
-```
-
-
-#### Get Event
-This takes a single optional parameter of an event ID, it will return the details to that event
-
-``` php
-$ef->get_event(2);
-```
 
 
 ### Attendee Methods
@@ -267,13 +244,7 @@ The methods will always return a JSON string similar to the below:
 ```
 
 
-Dependencies
-------
-
-Built running PHP version 5.6.2
-
-
 Licence
 ------
 
-http://opensource.org/licenses/bsd-license.php
+https://opensource.org/licenses/MIT
