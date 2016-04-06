@@ -6,8 +6,30 @@ use EventsForce\Exceptions\InvalidArgumentException;
 
 class Client
 {
+    /**
+     * The first part of the eventsforce api endpoint uri
+     * together: $ef_uri . {client_slug} . $ef_api_endpoint;
+     * @var string
+     */
+    private static $ef_uri = 'https://www.eventsforce.net/';
+
+    /**
+     * The second part of the eventsforce api endpoint uri
+     * together: $ef_uri . {client_slug} . $ef_api_endpoint;
+     * @var string
+     */
+    private static $ef_api_endpoint = '/api/v2';
+
+    /**
+     * @var string
+     */
     private $api_key = '';
+
+    /**
+     * @var string
+     */
     private $client_slug = '';
+    
 
     /**
      * Client constructor.
