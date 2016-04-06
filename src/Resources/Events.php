@@ -10,6 +10,13 @@ namespace EventsForce\Resources;
 class Events extends Base
 {
 
+    /**
+     * Method to get all events
+     *
+     * 
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws \EventsForce\Exceptions\EventsForceException
+     */
     public function getAll()
     {
         $request = $this->client->request([
