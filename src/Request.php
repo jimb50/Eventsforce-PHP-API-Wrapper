@@ -140,6 +140,21 @@ class Request
         return $this;
     }
 
+    /**
+     * Method to set query
+     * @param array $query
+     * @return $this
+     */
+    public function setQuery($query = [])
+    {
+        if (!is_array($query)) {
+            $query = (array) $query;
+        }
+
+        $this->options['query'] = $query;
+        return $this;
+    }
+
 
     /**
      * Method to handle sending a request
@@ -149,14 +164,7 @@ class Request
      */
     public function send()
     {
-        // ensure that for get requests we put options inside the query key
-        if ('GET' === $this->method) {
-            $options = [
-                'query' => $this->options
-            ];
-        }
-
-        $response = $this->client->request($this->method, $this->endpoint, $options);
+        $response = $this->client->request($this->method, $this->endpoint, $this->options);
 
         if (false === $response->hasHeader('Content-Length')) {
             throw new EmptyResponseException('No content in response from API');

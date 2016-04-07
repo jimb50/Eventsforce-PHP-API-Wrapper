@@ -57,20 +57,26 @@ Available parameters:
 * registrationStatus
 
 ```php
-$client->attendees->setEvent(2)->getAll($arguments);
+$client->attendees
+    ->setEvent(2)
+    ->getAll();
 
-// where arguments is a key value array like:
+// Or you can also pass arguments where it is a key value array as below
 $arguments = [
-    'lastModifiedAfter' => time(),
+    'lastModifiedAfter' => '2016-04-07 19:43:26', // date('Y-m-d H:i:s');
     'paymentStatus' => 'paid',
     'category' => 'Attendee',
     'registrationStatus' => 'complete'
 ];
-$client->attendees->getAll($arguments);
 
-// this will return a stream for only attendees who have paid
-// also notice I didn't 'setEvent' again, this is because until you re set an event id it will use the previously set one
+$client->attendees
+    ->getAll($arguments);
+
+// this will return a stream for only attendees who have paid, are an Attendee, they have completed their registration and they were last modified after 2016-04-07 19:43:26
+// also notice we didn't run 'setEvent' again, this is because until you set an event again it will use the previously set one
 ```
+
+
 
 
 OLD DOCS BELOW:
@@ -80,21 +86,6 @@ OLD DOCS BELOW:
 
 ### Attendee Methods
 ---
-
-
-#### Get Attendees
-This takes an array of key value options, all are optional.
-They are:
-eventid
-last_modified
-payment_status
-category
-registration_status
-			
-
-``` php
-$ef->get_attendees(array('eventid' => 2));
-```
 
 
 #### Get Attendee
