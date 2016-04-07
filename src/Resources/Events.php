@@ -30,7 +30,9 @@ class Events extends Base
     /**
      * Method to get single event
      * http://docs.eventsforce.apiary.io/#reference/events/eventseventidjson/get
-     *
+     * @param bool $id
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws \EventsForce\Exceptions\EmptyResponseException
      */
     public function get($id = false)
     {

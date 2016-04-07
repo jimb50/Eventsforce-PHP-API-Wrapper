@@ -3,6 +3,7 @@
 namespace EventsForce;
 
 use EventsForce\Exceptions\InvalidArgumentException;
+use EventsForce\Resources\Attendees;
 use EventsForce\Resources\Events;
 use GuzzleHttp\Client as GuzzleClient;
 
@@ -49,13 +50,19 @@ class Client
      */
     private $client;
 
-
     /**
      * Instance of Events resource class \EventsForce\Resources\Events
      *
      * @var object
      */
     public $events;
+
+    /**
+     * Instance of Attendees resource class \EventsForce\Resources\Attendees
+     *
+     * @var object
+     */
+    public $attendees;
 
 
     /**
@@ -97,6 +104,7 @@ class Client
     private function bootstrapResources()
     {
         $this->events = new Events($this);
+        $this->attendees = new Attendees($this);
     }
 
     /**
