@@ -1,7 +1,7 @@
 <?php
+
 class EventsForceClientTest extends PHPUnit_Framework_TestCase
 {
-
     protected $client;
 
     public function setUp()
