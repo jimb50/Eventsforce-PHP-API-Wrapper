@@ -52,4 +52,26 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(null, $result);
     }
+
+    public function testGenEndpointWithString()
+    {
+        $endpoint = $this->client->attendees->genEndpoint('test.json');
+
+        $this->assertEquals('events/test.json', $endpoint);
+    }
+
+    public function testGenEndpointWithArray()
+    {
+        $endpoint = $this->client->attendees->genEndpoint([2, 'test.json']);
+
+        $this->assertEquals('events/2/test.json', $endpoint);
+    }
+
+    /**
+     * @expectedException EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testGenEndpointFailingOnBoolInput()
+    {
+        $this->client->attendees->genEndpoint(true);
+    }
 }
