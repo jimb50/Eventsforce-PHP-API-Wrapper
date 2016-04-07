@@ -59,8 +59,8 @@ class Attendees extends BaseResource
      */
     public function get($attendee_id = false)
     {
-        if (!is_numeric($attendee_id)) {
-            throw new InvalidArgumentException('You need to pass a numeric value as an attendee id');
+        if (!is_numeric($attendee_id) || $attendee_id < 0) {
+            throw new InvalidArgumentException('You need to pass a positive numeric value as an attendee id');
         }
 
         $request = $this->client->request([
@@ -83,8 +83,8 @@ class Attendees extends BaseResource
      */
     public function update($attendee_id = false, $data = [])
     {
-        if (!is_numeric($attendee_id)) {
-            throw new InvalidArgumentException('You need to pass a numeric value as an attendee id');
+        if (!is_numeric($attendee_id) || $attendee_id < 0) {
+            throw new InvalidArgumentException('You need to pass a positive numeric value as an attendee id');
         }
 
         if (!is_array($data)) {
@@ -106,6 +106,40 @@ class Attendees extends BaseResource
     }
 
     /**
+     * Method to authenticate a user
+     * API Docs - http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeesauthenticatejson/post
+     *
+     * @param bool $user_id
+     * @param bool $password
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws EventsForceException
+     * @throws InvalidArgumentException
+     */
+    public function auth($user_id = false, $password = false)
+    {
+        if ((!is_string($user_id) && !is_numeric($user_id)) || empty($user_id)) {
+            throw new InvalidArgumentException('You must pass a user_id to authenticate an attendee - the required value is dependant on the attendeeIdMode set for an event');
+        }
+
+        if (!is_string($password) || empty($password)) {
+            throw new InvalidArgumentException('You must pass a string non empty password in order to authenticate an attendee');
+        }
+
+        $request = $this->client->request([
+            'endpoint' => $this->genEndpoint([$this->getEventId(), 'attendees', 'authenticate.json'])
+        ]);
+
+        $request
+            ->setMethod('POST')
+            ->setJson([
+                'userID' => $user_id,
+                'password' => $password
+            ]);
+
+        return $request->send();
+    }
+
+    /**
      * Method to set the current event we're looking up in for attendees
      *
      * @param bool $event_id
@@ -114,7 +148,7 @@ class Attendees extends BaseResource
      */
     public function setEvent($event_id = false)
     {
-        if (!is_numeric($event_id)) {
+        if (!is_numeric($event_id) || $event_id < 0) {
             throw new InvalidArgumentException('You need to pass an integer event id');
         }
         $this->event = $event_id;

@@ -102,58 +102,20 @@ $client->attendees
     ]);
 ```
 
+#####[Authenticate an attendee - /events/{event_id}/attendees/authenticate.json](http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeesauthenticatejson/post)#####
+The value required for userID depends on the attendeeIDMode set for the event.
+```php
+$client->attendees
+    ->setEvent(1)
+    ->auth('aliquet@mauris.co.uk', 'DWS7C6Z');
+```
+
+
+
 OLD DOCS BELOW:
 -----
 
 
-
-### Attendee Methods
----
-
-
-#### Get Attendee
-This takes an attendee id parameter that is required and then an optional eventid
-
-``` php
-$ef->get_attendee(10, 2);
-```
-
-#### Update Attendee
-This takes an array of key value options, userid and data are mandatory.
-The data option itself is an array of arrays and key value pairs which depend on the way the eventsforce event and attendees are set up and what options are available
-
-``` php
-$args = array(
-	'eventid' => '2',
-	'userid' => '9',
-	'data' => array(
-		'customData' => array(
-			array('key' => 'Receive Newsletter', 'value' => 'false'),
-			array('key' => 'CRM ID', 'value' => '123456')
-		),
-		'attendedSessions' => array(
-			array('sessonID' => 987, 'lastUpdate' => '2013-10-07T13:27:00Z')
-		),
-		'attendedDays' => array(
-			array('date' => '2013-08-29', 'lastUpdate' => '2013-10-07T13:27:00Z')
-		),
-		'customRegistrationData' => array(
-			array('key' => 'Company Size', 'value' => '20'),
-			array('key' => 'Year Founded', 'value' => '1886')
-		)
-	)
-);
-$updatedAttendee = $ef->update_attendee($args);
-```
-
-
-#### Authenticate Attendee
-This takes a user email and password (mandatory) and an optional eventid.
-It will return true or false dependent on the success of the authentication
-
-``` php
-$authenticate = $ef->authenticate_attendee('test@example.com', 'asdad4343h', 2);
-```
 
 
 ### Session Methods
