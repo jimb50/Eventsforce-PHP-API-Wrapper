@@ -28,20 +28,20 @@ class Attendees extends BaseResource
      * Method to get all events
      * Api Docs: http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeesjsonlastmodifiedafterpaymentstatuscategoryregistrationstatus/get
      *
-     * @param $args array
+     * @param array $options
      *
      * @return \Psr\Http\Message\StreamInterface
      * @throws InvalidArgumentException
      */
-    public function getAll($args = [])
+    public function getAll($options = [])
     {
-        if (!is_array($args)) {
+        if (!is_array($options)) {
             throw new InvalidArgumentException('If passing $args, it must be an array');
         }
 
         $request = $this->client->request([
             'endpoint' => $this->genEndpoint([$this->event, 'attendees.json']),
-            'options' => $args
+            'options' => $options
         ]);
 
         return $request->send();

@@ -88,6 +88,21 @@ class Request
     }
 
     /**
+     * Method for setting request options
+     * @param array $options
+     * @return $this
+     */
+    public function setOptions($options = [])
+    {
+        if (!is_array($options)) {
+            $options = (array) $options;
+        }
+
+        $this->options = $options;
+        return $this;
+    }
+
+    /**
      * Method to set request endpoint
      *
      * @param string $endpoint
@@ -134,7 +149,14 @@ class Request
      */
     public function send()
     {
-        $response = $this->client->request($this->method, $this->endpoint);
+        // ensure that for get requests we put options inside the query key
+        if ('GET' === $this->method) {
+            $options = [
+                'query' => $this->options
+            ];
+        }
+
+        $response = $this->client->request($this->method, $this->endpoint, $options);
 
         if (false === $response->hasHeader('Content-Length')) {
             throw new EmptyResponseException('No content in response from API');
