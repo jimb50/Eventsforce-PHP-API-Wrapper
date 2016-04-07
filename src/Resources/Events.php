@@ -8,7 +8,7 @@ use EventsForce\Exceptions\InvalidArgumentException;
  *
  * @package EventsForce\Resources
  */
-class Events extends Base
+class Events extends BaseResource
 {
 
     /**

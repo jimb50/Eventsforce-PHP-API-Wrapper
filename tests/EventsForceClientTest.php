@@ -15,8 +15,8 @@ class EventsForceClientTest extends PHPUnit_Framework_TestCase
     }
 
     public function testResourcesExtendBase() {
-        $this->assertInstanceOf('EventsForce\Resources\Base', $this->client->events);
-        $this->assertInstanceOf('EventsForce\Resources\Base', $this->client->attendees);
+        $this->assertInstanceOf('EventsForce\Resources\BaseResource', $this->client->events);
+        $this->assertInstanceOf('EventsForce\Resources\BaseResource', $this->client->attendees);
     }
 
     public function testResourcesInstances()

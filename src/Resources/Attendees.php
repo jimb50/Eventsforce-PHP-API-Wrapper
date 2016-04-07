@@ -8,7 +8,7 @@ use EventsForce\Exceptions\InvalidArgumentException;
  *
  * @package EventsForce\Resources
  */
-class Attendees extends Base
+class Attendees extends BaseResource
 {
     /**
      * Event id which we'll be looking in
