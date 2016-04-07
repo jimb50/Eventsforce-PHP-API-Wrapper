@@ -37,49 +37,49 @@
 <text text-anchor="middle" x="377" y="-423.7" font-family="Courier,monospace" font-size="11.00">Events</text>
 </g>
 <!-- \\EventsForce\\Resources\\Events&#45;&gt;\\EventsForce\\Resources\\Base -->
-<g id="edge3" class="edge"><title>\\EventsForce\\Resources\\Events&#45;&gt;\\EventsForce\\Resources\\Base</title>
+<g id="edge4" class="edge"><title>\\EventsForce\\Resources\\Events&#45;&gt;\\EventsForce\\Resources\\Base</title>
 <path fill="none" stroke="black" d="M349.031,-427C304.89,-427 216.532,-427 160.487,-427"/>
 <polygon fill="none" stroke="black" points="160.417,-423.5 150.417,-427 160.417,-430.5 160.417,-423.5"/>
 </g>
-<!-- \\EventsForce\\Exceptions\\InvalidArgumentException -->
-<g id="node3" class="node"><title>\\EventsForce\\Exceptions\\InvalidArgumentException</title>
-<polygon fill="none" stroke="black" points="464.426,-366 289.574,-366 289.574,-330 464.426,-330 464.426,-366"/>
-<text text-anchor="middle" x="377" y="-344.7" font-family="Courier,monospace" font-size="11.00">InvalidArgumentException</text>
-</g>
-<!-- \\InvalidArgumentException -->
-<g id="node8" class="node"><title>\\InvalidArgumentException</title>
-<ellipse fill="none" stroke="black" cx="109" cy="-72" rx="109.337" ry="18"/>
-<text text-anchor="middle" x="109" y="-67.8" font-family="Times,serif" font-size="14.00" fill="gray">\InvalidArgumentException</text>
-</g>
-<!-- \\EventsForce\\Exceptions\\InvalidArgumentException&#45;&gt;\\InvalidArgumentException -->
-<g id="edge1" class="edge"><title>\\EventsForce\\Exceptions\\InvalidArgumentException&#45;&gt;\\InvalidArgumentException</title>
-<path fill="none" stroke="black" d="M297.111,-329.901C291.79,-327.318 286.688,-324.368 282,-321 199.995,-262.084 144.178,-151.292 121.447,-99.7191"/>
-<polygon fill="none" stroke="black" points="124.525,-98.0174 117.344,-90.227 118.1,-100.795 124.525,-98.0174"/>
-</g>
-<!-- \\EventsForce\\Exceptions\\EventsForceException -->
-<g id="node4" class="node"><title>\\EventsForce\\Exceptions\\EventsForceException</title>
-<polygon fill="none" stroke="black" points="451.021,-312 302.979,-312 302.979,-276 451.021,-276 451.021,-312"/>
-<text text-anchor="middle" x="377" y="-290.7" font-family="Courier,monospace" font-size="11.00">EventsForceException</text>
+<!-- \\EventsForce\\Exceptions\\EmptyResponseException -->
+<g id="node3" class="node"><title>\\EventsForce\\Exceptions\\EmptyResponseException</title>
+<polygon fill="none" stroke="black" points="457.724,-312 296.276,-312 296.276,-276 457.724,-276 457.724,-312"/>
+<text text-anchor="middle" x="377" y="-290.7" font-family="Courier,monospace" font-size="11.00">EmptyResponseException</text>
 </g>
 <!-- \\Exception -->
-<g id="node9" class="node"><title>\\Exception</title>
-<ellipse fill="none" stroke="black" cx="109" cy="-18" rx="40.6162" ry="18"/>
-<text text-anchor="middle" x="109" y="-13.8" font-family="Times,serif" font-size="14.00" fill="gray">xception</text>
-</g>
-<!-- \\EventsForce\\Exceptions\\EventsForceException&#45;&gt;\\Exception -->
-<g id="edge2" class="edge"><title>\\EventsForce\\Exceptions\\EventsForceException&#45;&gt;\\Exception</title>
-<path fill="none" stroke="black" d="M302.558,-281.123C294.962,-277.499 287.886,-272.88 282,-267 209.355,-194.426 291.894,-116.302 218,-45 202.533,-30.0753 180.122,-23.0223 159.72,-19.8183"/>
-<polygon fill="none" stroke="black" points="159.962,-16.3204 149.595,-18.5046 159.061,-23.2623 159.962,-16.3204"/>
-</g>
-<!-- \\EventsForce\\Exceptions\\EmptyResponseException -->
-<g id="node5" class="node"><title>\\EventsForce\\Exceptions\\EmptyResponseException</title>
-<polygon fill="none" stroke="black" points="457.724,-258 296.276,-258 296.276,-222 457.724,-222 457.724,-258"/>
-<text text-anchor="middle" x="377" y="-236.7" font-family="Courier,monospace" font-size="11.00">EmptyResponseException</text>
+<g id="node8" class="node"><title>\\Exception</title>
+<ellipse fill="none" stroke="black" cx="109" cy="-72" rx="40.6162" ry="18"/>
+<text text-anchor="middle" x="109" y="-67.8" font-family="Times,serif" font-size="14.00" fill="gray">xception</text>
 </g>
 <!-- \\EventsForce\\Exceptions\\EmptyResponseException&#45;&gt;\\Exception -->
-<g id="edge4" class="edge"><title>\\EventsForce\\Exceptions\\EmptyResponseException&#45;&gt;\\Exception</title>
-<path fill="none" stroke="black" d="M296.172,-227.569C291.068,-224.929 286.272,-221.771 282,-218 220.538,-163.746 279.051,-99.7152 218,-45 202.117,-30.7652 179.858,-23.7857 159.672,-20.4514"/>
-<polygon fill="none" stroke="black" points="160.046,-16.9698 149.659,-19.0562 159.08,-23.9029 160.046,-16.9698"/>
+<g id="edge1" class="edge"><title>\\EventsForce\\Exceptions\\EmptyResponseException&#45;&gt;\\Exception</title>
+<path fill="none" stroke="black" d="M298.981,-275.9C293.048,-273.309 287.31,-270.358 282,-267 211.263,-222.272 152.773,-140.056 125.891,-98.109"/>
+<polygon fill="none" stroke="black" points="128.789,-96.144 120.492,-89.5565 122.87,-99.8808 128.789,-96.144"/>
+</g>
+<!-- \\EventsForce\\Exceptions\\InvalidArgumentException -->
+<g id="node4" class="node"><title>\\EventsForce\\Exceptions\\InvalidArgumentException</title>
+<polygon fill="none" stroke="black" points="464.426,-258 289.574,-258 289.574,-222 464.426,-222 464.426,-258"/>
+<text text-anchor="middle" x="377" y="-236.7" font-family="Courier,monospace" font-size="11.00">InvalidArgumentException</text>
+</g>
+<!-- \\InvalidArgumentException -->
+<g id="node9" class="node"><title>\\InvalidArgumentException</title>
+<ellipse fill="none" stroke="black" cx="109" cy="-18" rx="109.337" ry="18"/>
+<text text-anchor="middle" x="109" y="-13.8" font-family="Times,serif" font-size="14.00" fill="gray">\InvalidArgumentException</text>
+</g>
+<!-- \\EventsForce\\Exceptions\\InvalidArgumentException&#45;&gt;\\InvalidArgumentException -->
+<g id="edge2" class="edge"><title>\\EventsForce\\Exceptions\\InvalidArgumentException&#45;&gt;\\InvalidArgumentException</title>
+<path fill="none" stroke="black" d="M289.615,-223.764C286.938,-222.023 284.387,-220.107 282,-218 220.538,-163.746 279.051,-99.7152 218,-45 213.183,-40.6829 207.779,-37.033 202.025,-33.9499"/>
+<polygon fill="none" stroke="black" points="203.265,-30.6646 192.728,-29.5568 200.274,-36.9936 203.265,-30.6646"/>
+</g>
+<!-- \\EventsForce\\Exceptions\\EventsForceException -->
+<g id="node5" class="node"><title>\\EventsForce\\Exceptions\\EventsForceException</title>
+<polygon fill="none" stroke="black" points="451.021,-366 302.979,-366 302.979,-330 451.021,-330 451.021,-366"/>
+<text text-anchor="middle" x="377" y="-344.7" font-family="Courier,monospace" font-size="11.00">EventsForceException</text>
+</g>
+<!-- \\EventsForce\\Exceptions\\EventsForceException&#45;&gt;\\Exception -->
+<g id="edge3" class="edge"><title>\\EventsForce\\Exceptions\\EventsForceException&#45;&gt;\\Exception</title>
+<path fill="none" stroke="black" d="M302.82,-332.502C295.442,-329.348 288.343,-325.557 282,-321 199.795,-261.94 143.906,-150.751 121.282,-99.3428"/>
+<polygon fill="none" stroke="black" points="124.379,-97.6857 117.202,-89.8913 117.952,-100.46 124.379,-97.6857"/>
 </g>
 <!-- \\EventsForce\\Request -->
 <g id="node6" class="node"><title>\\EventsForce\\Request</title>
