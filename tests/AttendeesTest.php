@@ -91,6 +91,36 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException \EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testEmptyParamsUpdate()
+    {
+        $this->client->attendees->update();
+    }
+    
+    /**
+     * @dataProvider invalidParamsUpdateProvider
+     * @expectedException \EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testInvalidParamsUpdate($id, $data)
+    {
+        $this->client->attendees->update($id, $data);
+    }
+
+    public function invalidParamsUpdateProvider()
+    {
+        return array(
+            array('', ''),
+            array(1, ''),
+            array(1, 1),
+            array(array(), array()),
+            array('', 1),
+            array(array(), 1),
+            array(array(), '')
+        );
+    }
+
+    /**
      * @expectedException \EventsForce\Exceptions\EventsForceException
      */
     public function testNotSetEventIdGetAll()
@@ -104,5 +134,13 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     public function testNotSetEventIdGet()
     {
         $this->client->attendees->get(2);
+    }
+
+    /**
+     * @expectedException \EventsForce\Exceptions\EventsForceException
+     */
+    public function testNotSetEventIdUpdate()
+    {
+        $this->client->attendees->update(2);
     }
 }
