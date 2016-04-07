@@ -45,7 +45,8 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
             array('Test'),
             array(false),
             array(true),
-            array(array(1,2,3))
+            array(array(1,2,3)),
+            array(-1)
         );
     }
 
@@ -91,13 +92,33 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider invalidQueryGetProvider
+     * @expectedException \EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testInvalidQueryGet($value)
+    {
+        $this->client->attendees->get($value);
+    }
+
+    public function invalidQueryGetProvider()
+    {
+        return array(
+            array(true),
+            array(false),
+            array(''),
+            array('test'),
+            array(-1)
+        );
+    }
+
+    /**
      * @expectedException \EventsForce\Exceptions\InvalidArgumentException
      */
     public function testEmptyParamsUpdate()
     {
         $this->client->attendees->update();
     }
-    
+
     /**
      * @dataProvider invalidParamsUpdateProvider
      * @expectedException \EventsForce\Exceptions\InvalidArgumentException
@@ -116,7 +137,44 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
             array(array(), array()),
             array('', 1),
             array(array(), 1),
-            array(array(), '')
+            array(array(), ''),
+            array(-1, array())
+        );
+    }
+
+    /**
+     * @expectedException \EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testEmptyAuthParams()
+    {
+        $this->client->attendees->auth();
+    }
+    /**
+     * @expectedException \EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testEmptyAuthPassword()
+    {
+        $this->client->attendees->auth('test');
+    }
+    /**
+     * @dataProvider invalidParamsAuthProvider
+     * @expectedException \EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testInvalidParamsAuth($user, $password)
+    {
+        $this->client->attendees->update($user, $password);
+    }
+
+    public function invalidParamsAuthProvider()
+    {
+        return array(
+            array('', ''),
+            array(1, ''),
+            array('shshs', 1),
+            array('adasd', array()),
+            array('asdsad', true),
+            array(false, 'asdada'),
+            array(true, 'dasdasd')
         );
     }
 
@@ -127,7 +185,6 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     {
         $this->client->attendees->getAll();
     }
-
     /**
      * @expectedException \EventsForce\Exceptions\EventsForceException
      */
@@ -135,12 +192,18 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     {
         $this->client->attendees->get(2);
     }
-
     /**
      * @expectedException \EventsForce\Exceptions\EventsForceException
      */
     public function testNotSetEventIdUpdate()
     {
         $this->client->attendees->update(2);
+    }
+    /**
+     * @expectedException \EventsForce\Exceptions\EventsForceException
+     */
+    public function testNotSetEventIdAuth()
+    {
+        $this->client->attendees->auth('test', 'test');
     }
 }
