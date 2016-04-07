@@ -57,13 +57,19 @@ Available parameters:
 * registrationStatus
 
 ```php
-// which one?
-$client->attendees->event(2)->getAll($arguments);
-$client->attendees->getAll(2, $arguments);
+$client->attendees->setEvent(2)->getAll($arguments);
 
-// or
-$client->events->event(2)->getAttendees($arguments);
-$client->events->getAttendees(2, $arguments);
+// where arguments is a key value array like:
+$arguments = [
+    'lastModifiedAfter' => time(),
+    'paymentStatus' => 'paid',
+    'category' => 'Attendee',
+    'registrationStatus' => 'complete'
+];
+$client->attendees->getAll($arguments);
+
+// this will return a stream for only attendees who have paid
+// also notice I didn't 'setEvent' again, this is because until you re set an event id it will use the previously set one
 ```
 
 
