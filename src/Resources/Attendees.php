@@ -17,18 +17,51 @@ class Attendees extends BaseResource
      */
     protected $event;
 
+    /**
+     * Endpoint prefix
+     *
+     * @var string
+     */
+    protected $endpoint_prefix = 'events';
+
+    /**
+     * Method to get all events
+     * Api Docs: http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeesjsonlastmodifiedafterpaymentstatuscategoryregistrationstatus/get
+     *
+     * @param $args array
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws InvalidArgumentException
+     */
+    public function getAll($args = [])
+    {
+        if (!is_array($args)) {
+            throw new InvalidArgumentException('If passing $args, it must be an array');
+        }
+
+        $request = $this->client->request([
+            'endpoint' => $this->genEndpoint([$this->event, 'attendees.json']),
+            'options' => $args
+        ]);
+
+        return $request->send();
+    }
 
     /**
      * Method to set the current event we're looking up in for attendees
      *
      * @param bool $event_id
+     * @return $this
+     * @throws InvalidArgumentException
      */
     public function setEvent($event_id = false)
     {
         if (!is_numeric($event_id)) {
-            throw new InvalidArgumentException('You need to pass a int event id');
+            throw new InvalidArgumentException('You need to pass an integer event id');
         }
         $this->event = $event_id;
+
+        return $this;
     }
 
     /**

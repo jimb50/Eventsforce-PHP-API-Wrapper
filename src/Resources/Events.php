@@ -33,6 +33,7 @@ class Events extends BaseResource
      * @param bool $id
      * @return \Psr\Http\Message\StreamInterface
      * @throws \EventsForce\Exceptions\EmptyResponseException
+     * @throws InvalidArgumentException
      */
     public function get($id = false)
     {
