@@ -4,6 +4,7 @@ namespace EventsForce;
 
 use EventsForce\Exceptions\EventsForceException;
 use EventsForce\Exceptions\EmptyResponseException;
+use EventsForce\Exceptions\InvalidArgumentException;
 use GuzzleHttp\Client as GuzzleClient;
 
 /**
@@ -128,7 +129,7 @@ class Request
     public function setMethod($method = '')
     {
         if (!is_string($method)) {
-            $method = (string) $method;
+            throw new InvalidArgumentException('You must pass in a string method');
         }
         $method = strtoupper($method);
 
