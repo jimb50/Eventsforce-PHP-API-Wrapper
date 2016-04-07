@@ -7,6 +7,11 @@ use EventsForce\Resources\Attendees;
 use EventsForce\Resources\Events;
 use GuzzleHttp\Client as GuzzleClient;
 
+/**
+ * Client method for handling bootstrapping and making requests to the resources
+ *
+ * @package EventsForce
+ */
 class Client
 {
 

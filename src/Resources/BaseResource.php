@@ -5,6 +5,12 @@ namespace EventsForce\Resources;
 use EventsForce\Client;
 use EventsForce\Exceptions\InvalidArgumentException;
 
+/**
+ * Class BaseResource
+ * Abstract used by all resources
+ *
+ * @package EventsForce\Resources
+ */
 abstract class BaseResource
 {
     /**
@@ -19,6 +25,10 @@ abstract class BaseResource
      */
     protected $endpoint_prefix = '';
 
+    /**
+     * BaseResource constructor.
+     * @param Client $client
+     */
     public function __construct(Client $client)
     {
         $this->client = $client;
