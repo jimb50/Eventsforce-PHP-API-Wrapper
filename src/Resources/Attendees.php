@@ -71,6 +71,41 @@ class Attendees extends BaseResource
     }
 
     /**
+     * Method to update an attendee with a passed in set of data
+     * Api docs: http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeespersonidjsonhttpmethodpatch/post
+     * NOTE: NEEDS TESTING WITH FULL ACCESS API
+     *
+     * @param bool $attendee_id
+     * @param array $data
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws EventsForceException
+     * @throws \EventsForce\Exceptions\EmptyResponseException
+     */
+    public function update($attendee_id = false, $data = [])
+    {
+        if (!is_numeric($attendee_id)) {
+            throw new InvalidArgumentException('You need to pass a numeric value as an attendee id');
+        }
+
+        if (!is_array($data)) {
+            throw new InvalidArgumentException('You need to pass an array for data to update the attendee with');
+        }
+
+        $request = $this->client->request([
+            'endpoint' => $this->genEndpoint([$this->getEventId(), 'attendees', $attendee_id . '.json'])
+        ]);
+
+        $request
+            ->setQuery([
+                '_Http_Method' => 'PATCH'
+            ])
+            ->setMethod('POST')
+            ->setJson($data);
+
+        return $request->send();
+    }
+
+    /**
      * Method to set the current event we're looking up in for attendees
      *
      * @param bool $event_id

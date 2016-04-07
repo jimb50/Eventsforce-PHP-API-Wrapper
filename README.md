@@ -77,13 +77,30 @@ $client->attendees
 // nb: attempting to get a resource which depends on an id prior to setting it will throw an exception
 ```
 
-#####[Get a single attendee for an event by their person ID - /events/{event_id}/attendees/{attendee_id}.json](http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeespersonidjson/get)
+#####[Get a single attendee for an event by their person ID - /events/{event_id}/attendees/{attendee_id}.json](http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeespersonidjson/get)#####
 ```php
 $client->attendees
     ->setEvent(1)
     ->get(103);
 ```
 
+#####[Update an attendee - /events/{event_id}/attendees/{attendee_id}.json?_HttpMethod=PATCH](http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeespersonidjsonhttpmethodpatch/post)#####
+```php
+$client->attendees
+    ->setEvent(1)
+    ->update(103, [
+        'customData' => [
+            [
+                'key' => 'Receive Newsletter',
+                'value' => 'false',
+            ],
+            [
+                'key' => 'CRM ID',
+                'value' => '123456'
+            ]
+        ]
+    ]);
+```
 
 OLD DOCS BELOW:
 -----

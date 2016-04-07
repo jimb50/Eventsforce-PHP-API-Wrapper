@@ -92,6 +92,7 @@ class Request
      * Method for setting request options
      * @param array $options
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setOptions($options = [])
     {
@@ -108,6 +109,7 @@ class Request
      *
      * @param string $endpoint
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setEndpoint($endpoint = '')
     {
@@ -145,6 +147,7 @@ class Request
      * Method to set query
      * @param array $query
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setQuery($query = [])
     {
@@ -153,6 +156,22 @@ class Request
         }
 
         $this->options['query'] = $query;
+        return $this;
+    }
+
+    /**
+     * Method for setting the json options param to be sent with the request
+     *
+     * @param array $data
+     * @return $this
+     * @throws InvalidArgumentException
+     */
+    public function setJson($data = [])
+    {
+        if (!is_array($data)) {
+            throw new InvalidArgumentException('You must pass in an array to be parsed as json');
+        }
+        $this->options['json'] = $data;
         return $this;
     }
 
