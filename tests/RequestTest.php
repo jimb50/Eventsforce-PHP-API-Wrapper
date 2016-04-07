@@ -26,38 +26,40 @@ class RequestTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider notAllowedSetMethodProvider
      * @expectedException EventsForce\Exceptions\EventsForceException
      */
-    public function testSettingMethodFailsWhenSettingNoMethod()
+    public function testSettingMethodFailsWhenSettingNotAllowed($value)
     {
         $request = $this->client->request();
-        $request->setMethod();
+        $request->setMethod($value);
+    }
+
+    public function notAllowedSetMethodProvider()
+    {
+        return array(
+            array('test'),
+            array('NotAllowed')
+        );
     }
 
     /**
-     * @expectedException EventsForce\Exceptions\EventsForceException
-     */
-    public function testSettingMethodFailsWhenSettingNotAllowedMethod()
-    {
-        $request = $this->client->request();
-        $request->setMethod('NotAllowed');
-    }
-
-    /**
+     * @dataProvider invalidDataSetMethodProvider
      * @expectedException EventsForce\Exceptions\InvalidArgumentException
      */
-    public function testSettingMethodFailsWhenSettingBoolMethod()
+    public function testSettingMethodFailsWithIncorrectInput($value)
     {
         $request = $this->client->request();
-        $request->setMethod(true);
+        $request->setMethod($value);
     }
 
-    /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testSettingMethodFailsWhenSettingArrayMethod()
+    public function invalidDataSetMethodProvider()
     {
-        $request = $this->client->request();
-        $request->setMethod(array('GET'));
+        return array(
+            array(true),
+            array(false),
+            array(array('GET')),
+            array(array())
+        );
     }
 }

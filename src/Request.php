@@ -96,7 +96,7 @@ class Request
     public function setOptions($options = [])
     {
         if (!is_array($options)) {
-            $options = (array) $options;
+            throw new InvalidArgumentException('You must pass in a an array of options');
         }
 
         $this->options = $options;
@@ -112,7 +112,7 @@ class Request
     public function setEndpoint($endpoint = '')
     {
         if (!is_string($endpoint)) {
-            $endpoint = (string) $endpoint;
+            throw new InvalidArgumentException('You must pass in a string endpoint');
         }
 
         $this->endpoint = $endpoint;
@@ -149,7 +149,7 @@ class Request
     public function setQuery($query = [])
     {
         if (!is_array($query)) {
-            $query = (array) $query;
+            throw new InvalidArgumentException('You must pass in an array query');
         }
 
         $this->options['query'] = $query;

@@ -2,60 +2,39 @@
 class EventsForceClientInvalidArgumentTest extends PHPUnit_Framework_TestCase
 {
     /**
+     * @dataProvider invalidClientParametersProvider
      * @expectedException EventsForce\Exceptions\InvalidArgumentException
      */
-    public function testExceptionOnEmptyApiKey()
+    public function testExceptionOnEmptyApiKey($slug, $api)
     {
-        new EventsForce\Client('client_slug', '');
+        new EventsForce\Client($slug, $api);
     }
-    /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testExceptionOnNumericalApiKey()
+
+    public function invalidClientParametersProvider()
     {
-        new EventsForce\Client('client_slug', 1);
-    }
-    /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testExceptionOnBoolApiKey()
-    {
-        new EventsForce\Client('client_slug', true);
-    }
-    /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testExceptionOnNoApiKey()
-    {
-        new EventsForce\Client('client_slug');
+        return array(
+            array('client_slug', ''),
+            array('', ''),
+            array('client_slug', 1),
+            array('client_slug', true),
+            array('', 'api_key'),
+            array(1, 'api_key'),
+            array(true, 'api_key')
+        );
     }
 
     /**
      * @expectedException EventsForce\Exceptions\InvalidArgumentException
      */
-    public function testExceptionOnEmptyClientSlug()
-    {
-        new EventsForce\Client('', 'api_key');
-    }
-    /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testExceptionOnNumericalClientSlug()
-    {
-        new EventsForce\Client(1, 'api_key');
-    }
-    /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testExceptionOnBoolClientSlug()
-    {
-        new EventsForce\Client(true, 'api_key');
-    }
-    /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testExceptionOnNothingPassed()
+    public function testExceptionOnNoParams()
     {
         new EventsForce\Client();
+    }
+    /**
+     * @expectedException EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testExceptionOnOnlyClientSlugParam()
+    {
+        new EventsForce\Client('test_client_slug');
     }
 }
