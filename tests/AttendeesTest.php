@@ -15,6 +15,14 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException EventsForce\Exceptions\EventsForceException
+     */
+    public function testNotAllowingYouToGetEventIdIfNoEventIdSet()
+    {
+        $this->client->attendees->getEventId();
+    }
+
+    /**
      * @expectedException EventsForce\Exceptions\InvalidArgumentException
      */
     public function testSetEventFailingOnEmptyInput()
@@ -23,34 +31,22 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider invalidInputSetEventProvider
      * @expectedException EventsForce\Exceptions\InvalidArgumentException
      */
-    public function testSetEventFailingOnStringInput()
+    public function testSetEventFailingOnStringInput($value)
     {
-        $this->client->attendees->setEvent('Test');
+        $this->client->attendees->setEvent($value);
     }
 
-    /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testSetEventFailingOnBoolInput()
+    public function invalidInputSetEventProvider()
     {
-        $this->client->attendees->setEvent(true);
-    }
-
-    /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testSetEventFailingOnArrayInput()
-    {
-        $this->client->attendees->setEvent(array(1,2,3));
-    }
-
-    public function testGetEventNotSetReturnsNull()
-    {
-        $result = $this->client->attendees->getEventId();
-
-        $this->assertEquals(null, $result);
+        return array(
+            array('Test'),
+            array(false),
+            array(true),
+            array(array(1,2,3))
+        );
     }
 
     public function testGenEndpointWithString()
@@ -73,5 +69,40 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     public function testGenEndpointFailingOnBoolInput()
     {
         $this->client->attendees->genEndpoint(true);
+    }
+
+    /**
+     * @dataProvider invalidQueryGetAllProvider
+     * @expectedException \EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testInvalidQueryGetAll($value)
+    {
+        $this->client->attendees->getAll($value);
+    }
+
+    public function invalidQueryGetAllProvider()
+    {
+        return array(
+            array(true),
+            array(false),
+            array(''),
+            array('test')
+        );
+    }
+
+    /**
+     * @expectedException \EventsForce\Exceptions\EventsForceException
+     */
+    public function testNotSetEventIdGetAll()
+    {
+        $this->client->attendees->getAll();
+    }
+
+    /**
+     * @expectedException \EventsForce\Exceptions\EventsForceException
+     */
+    public function testNotSetEventIdGet()
+    {
+        $this->client->attendees->get(2);
     }
 }

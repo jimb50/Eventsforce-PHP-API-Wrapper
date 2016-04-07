@@ -74,9 +74,15 @@ $client->attendees
 
 // this will return a stream for only attendees who have paid, are an Attendee, they have completed their registration and they were last modified after 2016-04-07 19:43:26
 // also notice we didn't run 'setEvent' again, this is because until you set an event again it will use the previously set one
+// nb: attempting to get a resource which depends on an id prior to setting it will throw an exception
 ```
 
-
+#####[Get a single attendee for an event by their person ID - /events/{event_id}/attendees/{attendee_id}.json](http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeespersonidjson/get)
+```php
+$client->attendees
+    ->setEvent(1)
+    ->get(103);
+```
 
 
 OLD DOCS BELOW:

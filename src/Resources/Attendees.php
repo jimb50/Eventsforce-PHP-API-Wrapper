@@ -1,6 +1,7 @@
 <?php
 
 namespace EventsForce\Resources;
+use EventsForce\Exceptions\EventsForceException;
 use EventsForce\Exceptions\InvalidArgumentException;
 
 /**
@@ -40,10 +41,31 @@ class Attendees extends BaseResource
         }
 
         $request = $this->client->request([
-            'endpoint' => $this->genEndpoint([$this->event, 'attendees.json'])
+            'endpoint' => $this->genEndpoint([$this->getEventId(), 'attendees.json'])
         ]);
 
         $request->setQuery($query);
+
+        return $request->send();
+    }
+
+    /**
+     * Method to get a single attendee for an event
+     * Api Docs: http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeespersonidjson/get
+     *
+     * @param bool $attendee_id
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws \EventsForce\Exceptions\EmptyResponseException
+     */
+    public function get($attendee_id = false)
+    {
+        if (!is_numeric($attendee_id)) {
+            throw new InvalidArgumentException('You need to pass a numeric value as an attendee id');
+        }
+
+        $request = $this->client->request([
+            'endpoint' => $this->genEndpoint([$this->getEventId(), 'attendees', $attendee_id . '.json'])
+        ]);
 
         return $request->send();
     }
@@ -67,11 +89,14 @@ class Attendees extends BaseResource
 
     /**
      * Getter for event id
-     *
      * @return int
+     * @throws EventsForceException
      */
     public function getEventId()
     {
+        if (!is_numeric($this->event)) {
+            throw new EventsForceException('You must set an event ID using ->setEvent({event_id}) prior to using this method');
+        }
         return $this->event;
     }
 }
