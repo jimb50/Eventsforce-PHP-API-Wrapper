@@ -92,6 +92,14 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException \EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testEmptyQueryGet()
+    {
+        $this->client->attendees->get();
+    }
+
+    /**
      * @dataProvider invalidQueryGetProvider
      * @expectedException \EventsForce\Exceptions\InvalidArgumentException
      */

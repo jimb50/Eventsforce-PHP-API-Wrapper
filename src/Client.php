@@ -5,6 +5,7 @@ namespace EventsForce;
 use EventsForce\Exceptions\InvalidArgumentException;
 use EventsForce\Resources\Attendees;
 use EventsForce\Resources\Events;
+use EventsForce\Resources\Sessions;
 use GuzzleHttp\Client as GuzzleClient;
 
 /**
@@ -69,6 +70,13 @@ class Client
      */
     public $attendees;
 
+    /**
+     * Instance of Sessions resource class \EventsForce\Resources\Sessions
+     *
+     * @var object
+     */
+    public $sessions;
+
 
     /**
      * Client constructor.
@@ -88,7 +96,7 @@ class Client
             throw new InvalidArgumentException('You must pass an EventsForce API Key');
         }
 
-        $this->apiKey = Client::blankKey($api_key_unblanked);
+        $this->apiKey = $this->blankKey($api_key_unblanked);
         $this->clientSlug = $client_slug;
 
         $this->client = new GuzzleClient([
@@ -110,6 +118,7 @@ class Client
     {
         $this->events = new Events($this);
         $this->attendees = new Attendees($this);
+        $this->sessions = new Sessions($this);
     }
 
     /**
@@ -119,7 +128,7 @@ class Client
      * @param $key
      * @return string
      */
-    private static function blankKey($key)
+    private function blankKey($key)
     {
         return base64_encode(':' . $key);
     }

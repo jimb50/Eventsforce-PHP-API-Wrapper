@@ -35,7 +35,7 @@ The response is a \Psr\Http\Message\StreamInterface
 Usage - Full method map
 ------
 
-####Events####
+#### Events - http://docs.eventsforce.apiary.io/#reference/events####
 
 #####[Get all - /events.json](http://docs.eventsforce.apiary.io/#reference/events/eventsjson/get)#####
 ```php
@@ -47,7 +47,9 @@ $client->events->getAll();
 $client->events->get(2); // where 2 is the event id
 ```
 
-####Attendees####
+------
+
+#### Attendees - http://docs.eventsforce.apiary.io/#reference/attendees ####
 
 #####[Get all attendees for an event - /events/{event_id}/attendees.json](http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeesjsonlastmodifiedafterpaymentstatuscategoryregistrationstatus/get)#####
 Available parameters:
@@ -111,6 +113,29 @@ $client->attendees
 ```
 
 
+------
+
+#### Sessions - http://docs.eventsforce.apiary.io/#reference/sessions ####
+
+#####[Get all sessions for an event - /events/{event_id}/sessions.json](http://docs.eventsforce.apiary.io/#reference/sessions/eventseventidsessionsjson/get)#####
+```php
+$client->sessions
+    ->setEvent(3)
+    ->getAll();
+```
+
+#####[Get a single session for an event - /events/{event_id}/sessions/{session_id}.json](http://docs.eventsforce.apiary.io/#reference/sessions/eventseventidsessionssessionidjson/get)#####
+```php
+$client->sessions
+    ->setEvent(3)
+    ->get(17);
+```
+
+------
+
+#### People - http://docs.eventsforce.apiary.io/#reference/people ####
+
+
 
 OLD DOCS BELOW:
 -----
@@ -120,21 +145,6 @@ OLD DOCS BELOW:
 
 ### Session Methods
 ---
-
-
-#### Get Sessions
-This takes an optional eventID and returns info on all the related sessions (if they exist)
-
-``` php
-$sessions = $ef->get_sessions(2);
-```
-
-#### Get Session
-This takes a mandatory session ID and an optional eventID and returns info on the specific session (if it exists)
-
-``` php
-$session = $ef->get_session(1,2);
-```
 
 
 ### Person Methods
