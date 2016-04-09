@@ -62,4 +62,20 @@ abstract class BaseResource
 
         return $endpoint;
     }
+
+    /**
+     * method to merge array of arguments with defaults
+     *
+     * @param $args - passed in arguments
+     * @param $defaults - default argument array to merge with
+     *
+     * @return array
+     */
+    protected function argsMerge($args, $defaults)
+    {
+        if ($args == null)
+            $args = array();
+
+        return array_merge($defaults, $args);
+    }
 }
