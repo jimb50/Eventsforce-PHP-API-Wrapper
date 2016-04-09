@@ -1,7 +1,6 @@
 <?php
 
 namespace EventsForce\Resources;
-use EventsForce\Exceptions\EventsForceException;
 use EventsForce\Exceptions\InvalidArgumentException;
 
 /**
@@ -9,24 +8,10 @@ use EventsForce\Exceptions\InvalidArgumentException;
  *
  * @package EventsForce\Resources
  */
-class Attendees extends BaseResource
+class Attendees extends EventBasedResource
 {
     /**
-     * Event id which we'll be looking in
-     *
-     * @var int
-     */
-    protected $event;
-
-    /**
-     * Endpoint prefix
-     *
-     * @var string
-     */
-    protected $endpoint_prefix = 'events';
-
-    /**
-     * Method to get all events
+     * Method to get all Attendees for an event
      * Api Docs: http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeesjsonlastmodifiedafterpaymentstatuscategoryregistrationstatus/get
      *
      * @param array $query
@@ -53,7 +38,7 @@ class Attendees extends BaseResource
      * Method to get a single attendee for an event
      * Api Docs: http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeespersonidjson/get
      *
-     * @param bool $attendee_id
+     * @param bool|int $attendee_id
      * @return \Psr\Http\Message\StreamInterface
      * @throws \EventsForce\Exceptions\EmptyResponseException
      */
@@ -78,7 +63,6 @@ class Attendees extends BaseResource
      * @param bool $attendee_id
      * @param array $data
      * @return \Psr\Http\Message\StreamInterface
-     * @throws EventsForceException
      * @throws \EventsForce\Exceptions\EmptyResponseException
      */
     public function update($attendee_id = false, $data = [])
@@ -87,8 +71,8 @@ class Attendees extends BaseResource
             throw new InvalidArgumentException('You need to pass a positive numeric value as an attendee id');
         }
 
-        if (!is_array($data)) {
-            throw new InvalidArgumentException('You need to pass an array for data to update the attendee with');
+        if (!is_array($data) || empty($data)) {
+            throw new InvalidArgumentException('You need to pass a not empty array for data to update the attendee with');
         }
 
         $request = $this->client->request([
@@ -137,35 +121,5 @@ class Attendees extends BaseResource
             ]);
 
         return $request->send();
-    }
-
-    /**
-     * Method to set the current event we're looking up in for attendees
-     *
-     * @param bool $event_id
-     * @return $this
-     * @throws InvalidArgumentException
-     */
-    public function setEvent($event_id = false)
-    {
-        if (!is_numeric($event_id) || $event_id < 0) {
-            throw new InvalidArgumentException('You need to pass an integer event id');
-        }
-        $this->event = $event_id;
-
-        return $this;
-    }
-
-    /**
-     * Getter for event id
-     * @return int
-     * @throws EventsForceException
-     */
-    public function getEventId()
-    {
-        if (!is_numeric($this->event)) {
-            throw new EventsForceException('You must set an event ID using ->setEvent({event_id}) prior to using this method');
-        }
-        return $this->event;
     }
 }

@@ -1,0 +1,51 @@
+<?php
+
+namespace EventsForce\Resources;
+
+use EventsForce\Exceptions\EventsForceException;
+use EventsForce\Exceptions\InvalidArgumentException;
+
+/**
+ * Class for handling the sessions resource on the Events Force API: http://docs.eventsforce.apiary.io/#reference/sessions
+ *
+ * @package EventsForce\Resources
+ */
+class Sessions extends EventBasedResource
+{
+    /**
+     * Method to get all sessions for an event
+     * Api Docs: http://docs.eventsforce.apiary.io/#reference/sessions/eventseventidsessionsjson/get
+     *
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws InvalidArgumentException
+     */
+    public function getAll()
+    {
+        $request = $this->client->request([
+            'endpoint' => $this->genEndpoint([$this->getEventId(), 'sessions.json'])
+        ]);
+
+        return $request->send();
+    }
+
+    /**
+     * Method to get a single session for an event
+     * Api Docs: http://docs.eventsforce.apiary.io/#reference/sessions/eventseventidsessionssessionidjson/get
+     *
+     * @param bool|int $session_id
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws \EventsForce\Exceptions\EmptyResponseException
+     */
+    public function get($session_id = false)
+    {
+        if (!is_numeric($session_id) || $session_id < 0) {
+            throw new InvalidArgumentException('You need to pass a positive numeric value as a session id');
+        }
+
+        $request = $this->client->request([
+            'endpoint' => $this->genEndpoint([$this->getEventId(), 'sessions', $session_id . '.json'])
+        ]);
+
+        return $request->send();
+    }
+}

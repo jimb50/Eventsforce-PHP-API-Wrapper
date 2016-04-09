@@ -2,6 +2,7 @@
 
 namespace EventsForce;
 
+use EventsForce\Exceptions\ResourceNotFound;
 use EventsForce\Exceptions\EventsForceException;
 use EventsForce\Exceptions\EmptyResponseException;
 use EventsForce\Exceptions\InvalidArgumentException;
@@ -178,13 +179,17 @@ class Request
 
     /**
      * Method to handle sending a request
-     *
      * @return \Psr\Http\Message\StreamInterface
      * @throws EmptyResponseException
+     * @throws ResourceNotFound
      */
     public function send()
     {
         $response = $this->client->request($this->method, $this->endpoint, $this->options);
+
+        if (404 === $response->getStatusCode()) {
+            throw new ResourceNotFound('404: ' . $this->endpoint . ', Resource not found');
+        }
 
         if (false === $response->hasHeader('Content-Length')) {
             throw new EmptyResponseException('No content in response from API');
