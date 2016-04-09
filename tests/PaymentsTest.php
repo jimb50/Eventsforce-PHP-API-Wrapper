@@ -72,4 +72,45 @@ class PaymentsTest extends PHPUnit_Framework_TestCase
     {
         $this->client->payments->genEndpoint(true);
     }
+
+    public function testPostDefault()
+    {
+        $post_defaults = $this->client->payments->post_defaults;
+        // test default post payments have the right 4 keys
+        $this->assertArrayHasKey('amount', $post_defaults);
+        $this->assertArrayHasKey('currencyCode', $post_defaults);
+        $this->assertArrayHasKey('comment', $post_defaults);
+        $this->assertArrayHasKey('transactionReference', $post_defaults);
+        // assert post defaults has only 4 keys
+        $this->assertEquals(4, count($post_defaults));
+
+        $payments = $this->client->payments->setPostDefault('currencyCode', 'GBP');
+        // assert returns payments object
+        $this->assertInstanceOf('EventsForce\Resources\Payments', $payments);
+        // assert setting post default works
+        $this->assertEquals('GBP', $this->client->payments->post_defaults['currencyCode']);
+    }
+
+    /**
+     * @dataProvider invalidSetPostDefaultInputProvider
+     * @expectedException EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testInvalidSetPostDefaultInputs($key, $value)
+    {
+        $this->client->payments->setPostDefault($key, $value);
+    }
+
+    public function invalidSetPostDefaultInputProvider()
+    {
+        return array(
+            array('', ''),
+            array('adsda', ''),
+            array('', 'adadas'),
+            array(1, 'asdasda'),
+            array(true, 'asdsada'),
+            array(new stdClass(), 'adsdsad'),
+            array('notvalid', 'asdasd'),
+            array(array(), 'dasda')
+        );
+    }
 }

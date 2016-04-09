@@ -11,8 +11,8 @@ class Payments extends InvoiceBasedResource
      * Can be set and updated using setPostDefault($key, $value)
      * @var array
      */
-    private $post_defaults = [
-        'amount' => '0',
+    public $post_defaults = [
+        'amount' => 0,
         'currencyCode' => '',
         'comment' => '',
         'transactionReference' => ''
