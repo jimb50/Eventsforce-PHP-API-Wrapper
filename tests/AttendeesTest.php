@@ -117,7 +117,8 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
             array(''),
             array('test'),
             array(-1),
-            array(array())
+            array(array()),
+            array(new stdClass())
         );
     }
 
@@ -148,7 +149,9 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
             array('', 1),
             array(array(), 1),
             array(array(), ''),
-            array(-1, array())
+            array(-1, array()),
+            array(new stdClass(), array()),
+            array(1, new stdClass())
         );
     }
 
@@ -184,7 +187,9 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
             array('adasd', array()),
             array('asdsad', true),
             array(false, 'asdada'),
-            array(true, 'dasdasd')
+            array(true, 'dasdasd'),
+            array(new stdClass(), 'adad'),
+            array('faasd', new stdClass())
         );
     }
 

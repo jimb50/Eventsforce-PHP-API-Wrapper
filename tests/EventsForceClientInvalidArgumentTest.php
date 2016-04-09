@@ -19,7 +19,9 @@ class EventsForceClientInvalidArgumentTest extends PHPUnit_Framework_TestCase
             array('client_slug', true),
             array('', 'api_key'),
             array(1, 'api_key'),
-            array(true, 'api_key')
+            array(true, 'api_key'),
+            array(new stdClass(), 'dasdadas'),
+            array('adasda', new stdClass())
         );
     }
 

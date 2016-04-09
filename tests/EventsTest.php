@@ -41,7 +41,8 @@ class EventsTest extends PHPUnit_Framework_TestCase
             array(''),
             array('test'),
             array(-1),
-            array(array())
+            array(array()),
+            array(new stdClass())
         );
     }
 }

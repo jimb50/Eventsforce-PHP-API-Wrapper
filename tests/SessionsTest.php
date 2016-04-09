@@ -46,7 +46,8 @@ class SessionsTest extends PHPUnit_Framework_TestCase
             array(false),
             array(true),
             array(array(1,2,3)),
-            array(-1)
+            array(-1),
+            array(new stdClass())
         );
     }
 
@@ -97,7 +98,8 @@ class SessionsTest extends PHPUnit_Framework_TestCase
             array(''),
             array('test'),
             array(-1),
-            array(array())
+            array(array()),
+            array(new stdClass())
         );
     }
 
