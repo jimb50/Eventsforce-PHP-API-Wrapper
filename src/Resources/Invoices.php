@@ -39,4 +39,26 @@ class Invoices extends BaseResource
 
         return $request->send();
     }
+
+    /**
+     * Method to get a single invoice
+     * Api docs: http://docs.eventsforce.apiary.io/#reference/invoices/invoicesinvoicenumberjson/get
+     * 
+     * @param bool $invoice_id
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws \EventsForce\Exceptions\EmptyResponseException
+     * @throws \EventsForce\Exceptions\ResourceNotFound
+     */
+    public function get($invoice_id = false)
+    {
+        if (!is_numeric($invoice_id) || $invoice_id < 0) {
+            throw new InvalidArgumentException('You need to pass a positive numeric value as an invoice id');
+        }
+
+        $request = $this->client->request([
+            'endpoint' => $this->genEndpoint(['invoices', $invoice_id . '.json'])
+        ]);
+
+        return $request->send();
+    }
 }

@@ -155,6 +155,13 @@ $client->invoices
     ->getAll(1);
 ```
 
+#####[Get a single invoice - /invoices/{invoice_number}.json](http://docs.eventsforce.apiary.io/#reference/invoices/invoicesinvoicenumberjson/get)#####
+```php
+$client->invoices
+    ->get(1);
+```
+
+
 
 OLD DOCS BELOW:
 -----
