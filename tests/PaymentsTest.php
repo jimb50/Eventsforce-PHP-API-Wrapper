@@ -147,4 +147,25 @@ class PaymentsTest extends PHPUnit_Framework_TestCase
             array(array('amount' => array('test')))
         );
     }
+
+    /**
+     * @dataProvider invalidGetInput
+     * @expectedException EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testGetInvalidData($id)
+    {
+        $this->client->payments->get($id);
+    }
+
+    public function invalidGetInput()
+    {
+        return array(
+            array(''),
+            array(new stdClass()),
+            array(true),
+            array(false),
+            array(array()),
+            array(-1)
+        );
+    }
 }

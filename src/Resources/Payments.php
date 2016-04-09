@@ -34,6 +34,29 @@ class Payments extends InvoiceBasedResource
     }
 
     /**
+     * Method to get a single payment under an invoice
+     * Api docs: http://docs.eventsforce.apiary.io/#reference/payments/invoicesinvoicenumberpaymentspaymentidjson/get
+     *
+     * @param bool $payment_id
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws \EventsForce\Exceptions\EmptyResponseException
+     * @throws \EventsForce\Exceptions\EventsForceException
+     * @throws \EventsForce\Exceptions\ResourceNotFound
+     */
+    public function get($payment_id = false)
+    {
+        if (!is_numeric($payment_id) || 0 > $payment_id) {
+            throw new InvalidArgumentException('You must pass a positive integer as a payment id');
+        }
+
+        $request = $this->client->request([
+            'endpoint' => $this->genEndpoint([$this->getInvoiceId(), 'payments', $payment_id . '.json'])
+        ]);
+
+        return $request->send();
+    }
+
+    /**
      * Method to set a post default
      * This allows you to run multiple post payments where the post data isn't defined each time
      * e.g  ->setPostDefault('currencyCode', 'GBP')
@@ -67,6 +90,7 @@ class Payments extends InvoiceBasedResource
 
     /**
      * Method to post a payment against an invoice
+     * Api docs: http://docs.eventsforce.apiary.io/#reference/payments/invoicesinvoicenumberpaymentsjson/post
      * THIS NEEDS TESTING WITH A FULL ACCESS API
      *
      * @param array $data

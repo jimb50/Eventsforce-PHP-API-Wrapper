@@ -194,38 +194,20 @@ $client->payments
     ->setPostDefault('currencyCode', 'GBP') // you can use setPostDefault to set a default payment parameter, this allows you to set default then post multiple payments using similar details
     ->setPostDefault('comment', 'Made by My Application') // set a default comment for all future payments
     ->post(['amount' => 29.99]); // post one payment
+
 $client->payments
     ->post(['amount' => 27.79]); // post another
 ```
 
-
-OLD DOCS BELOW:
------
-
-
-#### Get Payment
-This gets info on a specific payment via mandatory invoicenumber and paymentid (respectively)
-
-``` php
-$payment = $ef->get_payment(1,1);
-```
-
-#### Post Payment
-This method posts a payment against an invoice
-It takes a mandatory invoice number and array of payment details:
-amount (int)
-currencyCode (string)
-comment (string)
-transactionReference (string)
-
-``` php
-$args = array('amount' => 20, 'currencyCode' => 'GBP', 'comment' => 'This is some money', 'transactionReference' => 'test1');
-$payment = $ef->post_payment(1, $args);
+#####[Get a single payment for an invoice - /invoices/{invoice_number}/payments/{payment_id}.json](http://docs.eventsforce.apiary.io/#reference/payments/invoicesinvoicenumberpaymentspaymentidjson/get)#####
+```php
+$client->payments
+    ->setInvoice(2)
+    ->get(2);
 ```
 
 
-
-Return values
+#### Return values ####
 ------
 
 The methods will always return a JSON string similar to the below:
