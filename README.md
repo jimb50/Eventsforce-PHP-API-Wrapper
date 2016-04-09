@@ -135,7 +135,11 @@ $client->sessions
 
 #### People - http://docs.eventsforce.apiary.io/#reference/people ####
 
-
+#####[Get a single person - /people/{person_id}.json](http://docs.eventsforce.apiary.io/#reference/people/get)#####
+```php
+$client->people
+    ->get(99);
+```
 
 
 
