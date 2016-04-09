@@ -33,65 +33,65 @@
 </g>
 <!-- \\EventsForce\\Resources\\Attendees -->
 <g id="node2" class="node"><title>\\EventsForce\\Resources\\Attendees</title>
-<polygon fill="none" stroke="black" points="614.911,-634 539.089,-634 539.089,-598 614.911,-598 614.911,-634"/>
-<text text-anchor="middle" x="577" y="-612.7" font-family="Courier,monospace" font-size="11.00">Attendees</text>
+<polygon fill="none" stroke="black" points="614.911,-715 539.089,-715 539.089,-679 614.911,-679 614.911,-715"/>
+<text text-anchor="middle" x="577" y="-693.7" font-family="Courier,monospace" font-size="11.00">Attendees</text>
 </g>
 <!-- \\EventsForce\\Resources\\EventBasedResource -->
-<g id="node4" class="node"><title>\\EventsForce\\Resources\\EventBasedResource</title>
-<polygon fill="none" stroke="black" points="376.319,-607 241.681,-607 241.681,-571 376.319,-571 376.319,-607"/>
-<text text-anchor="start" x="275.995" y="-591.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="249.59" y="-580.2" font-family="Courier,monospace" font-size="11.00">EventBasedResource</text>
+<g id="node7" class="node"><title>\\EventsForce\\Resources\\EventBasedResource</title>
+<polygon fill="none" stroke="black" points="376.319,-661 241.681,-661 241.681,-625 376.319,-625 376.319,-661"/>
+<text text-anchor="start" x="275.995" y="-645.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="249.59" y="-634.2" font-family="Courier,monospace" font-size="11.00">EventBasedResource</text>
 </g>
 <!-- \\EventsForce\\Resources\\Attendees&#45;&gt;\\EventsForce\\Resources\\EventBasedResource -->
 <g id="edge1" class="edge"><title>\\EventsForce\\Resources\\Attendees&#45;&gt;\\EventsForce\\Resources\\EventBasedResource</title>
-<path fill="none" stroke="black" d="M539.293,-612.274C500.093,-608.295 436.837,-601.874 386.685,-596.784"/>
-<polygon fill="none" stroke="black" points="386.821,-593.28 376.519,-595.752 386.114,-600.244 386.821,-593.28"/>
-</g>
-<!-- \\EventsForce\\Resources\\Events -->
-<g id="node3" class="node"><title>\\EventsForce\\Resources\\Events</title>
-<polygon fill="none" stroke="black" points="336.608,-715 281.392,-715 281.392,-679 336.608,-679 336.608,-715"/>
-<text text-anchor="middle" x="309" y="-693.7" font-family="Courier,monospace" font-size="11.00">Events</text>
-</g>
-<!-- \\EventsForce\\Resources\\Events&#45;&gt;\\EventsForce\\Resources\\BaseResource -->
-<g id="edge5" class="edge"><title>\\EventsForce\\Resources\\Events&#45;&gt;\\EventsForce\\Resources\\BaseResource</title>
-<path fill="none" stroke="black" d="M281.392,-693.044C258.987,-689.088 226.456,-681.856 200,-670 167.095,-655.254 133.481,-631.4 110.409,-613.389"/>
-<polygon fill="none" stroke="black" points="112.417,-610.515 102.407,-607.046 108.069,-616.001 112.417,-610.515"/>
-</g>
-<!-- \\EventsForce\\Resources\\EventBasedResource&#45;&gt;\\EventsForce\\Resources\\BaseResource -->
-<g id="edge7" class="edge"><title>\\EventsForce\\Resources\\EventBasedResource&#45;&gt;\\EventsForce\\Resources\\BaseResource</title>
-<path fill="none" stroke="black" d="M241.426,-589C208.634,-589 169.498,-589 138.09,-589"/>
-<polygon fill="none" stroke="black" points="137.756,-585.5 127.756,-589 137.756,-592.5 137.756,-585.5"/>
+<path fill="none" stroke="black" d="M539.293,-689.548C500.011,-681.574 436.573,-668.695 386.371,-658.504"/>
+<polygon fill="none" stroke="black" points="387.015,-655.063 376.519,-656.504 385.622,-661.923 387.015,-655.063"/>
 </g>
 <!-- \\EventsForce\\Resources\\InvoiceBasedResource -->
-<g id="node5" class="node"><title>\\EventsForce\\Resources\\InvoiceBasedResource</title>
-<polygon fill="none" stroke="black" points="383.021,-499 234.979,-499 234.979,-463 383.021,-463 383.021,-499"/>
-<text text-anchor="start" x="275.995" y="-483.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="242.989" y="-472.2" font-family="Courier,monospace" font-size="11.00">InvoiceBasedResource</text>
+<g id="node3" class="node"><title>\\EventsForce\\Resources\\InvoiceBasedResource</title>
+<polygon fill="none" stroke="black" points="383.021,-607 234.979,-607 234.979,-571 383.021,-571 383.021,-607"/>
+<text text-anchor="start" x="275.995" y="-591.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="242.989" y="-580.2" font-family="Courier,monospace" font-size="11.00">InvoiceBasedResource</text>
 </g>
 <!-- \\EventsForce\\Resources\\InvoiceBasedResource&#45;&gt;\\EventsForce\\Resources\\BaseResource -->
-<g id="edge8" class="edge"><title>\\EventsForce\\Resources\\InvoiceBasedResource&#45;&gt;\\EventsForce\\Resources\\BaseResource</title>
-<path fill="none" stroke="black" d="M234.775,-495.573C222.908,-498.989 210.935,-503.1 200,-508 167.095,-522.746 133.481,-546.6 110.409,-564.611"/>
-<polygon fill="none" stroke="black" points="108.069,-561.999 102.407,-570.954 112.417,-567.485 108.069,-561.999"/>
+<g id="edge4" class="edge"><title>\\EventsForce\\Resources\\InvoiceBasedResource&#45;&gt;\\EventsForce\\Resources\\BaseResource</title>
+<path fill="none" stroke="black" d="M234.926,-589C203.507,-589 167.333,-589 137.951,-589"/>
+<polygon fill="none" stroke="black" points="137.86,-585.5 127.86,-589 137.86,-592.5 137.86,-585.5"/>
 </g>
 <!-- \\EventsForce\\Resources\\Invoices -->
-<g id="node6" class="node"><title>\\EventsForce\\Resources\\Invoices</title>
-<polygon fill="none" stroke="black" points="343.309,-661 274.691,-661 274.691,-625 343.309,-625 343.309,-661"/>
-<text text-anchor="middle" x="309" y="-639.7" font-family="Courier,monospace" font-size="11.00">Invoices</text>
+<g id="node4" class="node"><title>\\EventsForce\\Resources\\Invoices</title>
+<polygon fill="none" stroke="black" points="343.309,-715 274.691,-715 274.691,-679 343.309,-679 343.309,-715"/>
+<text text-anchor="middle" x="309" y="-693.7" font-family="Courier,monospace" font-size="11.00">Invoices</text>
 </g>
 <!-- \\EventsForce\\Resources\\Invoices&#45;&gt;\\EventsForce\\Resources\\BaseResource -->
-<g id="edge9" class="edge"><title>\\EventsForce\\Resources\\Invoices&#45;&gt;\\EventsForce\\Resources\\BaseResource</title>
-<path fill="none" stroke="black" d="M274.505,-635.032C238.464,-626.459 180.525,-612.676 137.427,-602.423"/>
-<polygon fill="none" stroke="black" points="138.182,-599.005 127.643,-600.096 136.562,-605.815 138.182,-599.005"/>
+<g id="edge5" class="edge"><title>\\EventsForce\\Resources\\Invoices&#45;&gt;\\EventsForce\\Resources\\BaseResource</title>
+<path fill="none" stroke="black" d="M274.383,-691.758C252.542,-687.595 223.81,-680.67 200,-670 167.095,-655.254 133.481,-631.4 110.409,-613.389"/>
+<polygon fill="none" stroke="black" points="112.417,-610.515 102.407,-607.046 108.069,-616.001 112.417,-610.515"/>
+</g>
+<!-- \\EventsForce\\Resources\\Sessions -->
+<g id="node5" class="node"><title>\\EventsForce\\Resources\\Sessions</title>
+<polygon fill="none" stroke="black" points="611.309,-661 542.691,-661 542.691,-625 611.309,-625 611.309,-661"/>
+<text text-anchor="middle" x="577" y="-639.7" font-family="Courier,monospace" font-size="11.00">Sessions</text>
+</g>
+<!-- \\EventsForce\\Resources\\Sessions&#45;&gt;\\EventsForce\\Resources\\EventBasedResource -->
+<g id="edge8" class="edge"><title>\\EventsForce\\Resources\\Sessions&#45;&gt;\\EventsForce\\Resources\\EventBasedResource</title>
+<path fill="none" stroke="black" d="M542.58,-643C503.663,-643 438.129,-643 386.525,-643"/>
+<polygon fill="none" stroke="black" points="386.402,-639.5 376.402,-643 386.402,-646.5 386.402,-639.5"/>
 </g>
 <!-- \\EventsForce\\Resources\\Payments -->
-<g id="node7" class="node"><title>\\EventsForce\\Resources\\Payments</title>
-<polygon fill="none" stroke="black" points="611.309,-499 542.691,-499 542.691,-463 611.309,-463 611.309,-499"/>
-<text text-anchor="middle" x="577" y="-477.7" font-family="Courier,monospace" font-size="11.00">Payments</text>
+<g id="node6" class="node"><title>\\EventsForce\\Resources\\Payments</title>
+<polygon fill="none" stroke="black" points="611.309,-607 542.691,-607 542.691,-571 611.309,-571 611.309,-607"/>
+<text text-anchor="middle" x="577" y="-585.7" font-family="Courier,monospace" font-size="11.00">Payments</text>
 </g>
 <!-- \\EventsForce\\Resources\\Payments&#45;&gt;\\EventsForce\\Resources\\InvoiceBasedResource -->
-<g id="edge10" class="edge"><title>\\EventsForce\\Resources\\Payments&#45;&gt;\\EventsForce\\Resources\\InvoiceBasedResource</title>
-<path fill="none" stroke="black" d="M542.58,-481C505.376,-481 443.846,-481 393.417,-481"/>
-<polygon fill="none" stroke="black" points="393.163,-477.5 383.163,-481 393.163,-484.5 393.163,-477.5"/>
+<g id="edge9" class="edge"><title>\\EventsForce\\Resources\\Payments&#45;&gt;\\EventsForce\\Resources\\InvoiceBasedResource</title>
+<path fill="none" stroke="black" d="M542.58,-589C505.376,-589 443.846,-589 393.417,-589"/>
+<polygon fill="none" stroke="black" points="393.163,-585.5 383.163,-589 393.163,-592.5 393.163,-585.5"/>
+</g>
+<!-- \\EventsForce\\Resources\\EventBasedResource&#45;&gt;\\EventsForce\\Resources\\BaseResource -->
+<g id="edge10" class="edge"><title>\\EventsForce\\Resources\\EventBasedResource&#45;&gt;\\EventsForce\\Resources\\BaseResource</title>
+<path fill="none" stroke="black" d="M241.426,-627.163C208.491,-619.328 169.158,-609.971 137.681,-602.484"/>
+<polygon fill="none" stroke="black" points="138.294,-599.032 127.756,-600.122 136.674,-605.842 138.294,-599.032"/>
 </g>
 <!-- \\EventsForce\\Resources\\People -->
 <g id="node8" class="node"><title>\\EventsForce\\Resources\\People</title>
@@ -103,33 +103,43 @@
 <path fill="none" stroke="black" d="M281.069,-541.407C245.947,-549.761 183.597,-564.594 137.809,-575.486"/>
 <polygon fill="none" stroke="black" points="136.934,-572.096 128.015,-577.816 138.554,-578.906 136.934,-572.096"/>
 </g>
-<!-- \\EventsForce\\Resources\\Sessions -->
-<g id="node9" class="node"><title>\\EventsForce\\Resources\\Sessions</title>
-<polygon fill="none" stroke="black" points="611.309,-580 542.691,-580 542.691,-544 611.309,-544 611.309,-580"/>
-<text text-anchor="middle" x="577" y="-558.7" font-family="Courier,monospace" font-size="11.00">Sessions</text>
+<!-- \\EventsForce\\Resources\\Events -->
+<g id="node9" class="node"><title>\\EventsForce\\Resources\\Events</title>
+<polygon fill="none" stroke="black" points="336.608,-499 281.392,-499 281.392,-463 336.608,-463 336.608,-499"/>
+<text text-anchor="middle" x="309" y="-477.7" font-family="Courier,monospace" font-size="11.00">Events</text>
 </g>
-<!-- \\EventsForce\\Resources\\Sessions&#45;&gt;\\EventsForce\\Resources\\EventBasedResource -->
-<g id="edge12" class="edge"><title>\\EventsForce\\Resources\\Sessions&#45;&gt;\\EventsForce\\Resources\\EventBasedResource</title>
-<path fill="none" stroke="black" d="M542.58,-565.392C503.663,-569.342 438.129,-575.994 386.525,-581.232"/>
-<polygon fill="none" stroke="black" points="385.998,-577.768 376.402,-582.26 386.705,-584.732 385.998,-577.768"/>
+<!-- \\EventsForce\\Resources\\Events&#45;&gt;\\EventsForce\\Resources\\BaseResource -->
+<g id="edge12" class="edge"><title>\\EventsForce\\Resources\\Events&#45;&gt;\\EventsForce\\Resources\\BaseResource</title>
+<path fill="none" stroke="black" d="M281.392,-484.956C258.987,-488.912 226.456,-496.144 200,-508 167.095,-522.746 133.481,-546.6 110.409,-564.611"/>
+<polygon fill="none" stroke="black" points="108.069,-561.999 102.407,-570.954 112.417,-567.485 108.069,-561.999"/>
 </g>
-<!-- \\EventsForce\\Exceptions\\EmptyResponseException -->
-<g id="node10" class="node"><title>\\EventsForce\\Exceptions\\EmptyResponseException</title>
-<polygon fill="none" stroke="black" points="657.724,-366 496.276,-366 496.276,-330 657.724,-330 657.724,-366"/>
-<text text-anchor="middle" x="577" y="-344.7" font-family="Courier,monospace" font-size="11.00">EmptyResponseException</text>
+<!-- \\EventsForce\\Exceptions\\ResourceNotFound -->
+<g id="node10" class="node"><title>\\EventsForce\\Exceptions\\ResourceNotFound</title>
+<polygon fill="none" stroke="black" points="637.618,-366 516.382,-366 516.382,-330 637.618,-330 637.618,-366"/>
+<text text-anchor="middle" x="577" y="-344.7" font-family="Courier,monospace" font-size="11.00">ResourceNotFound</text>
 </g>
 <!-- \\Exception -->
 <g id="node16" class="node"><title>\\Exception</title>
 <ellipse fill="none" stroke="black" cx="309" cy="-72" rx="40.6162" ry="18"/>
 <text text-anchor="middle" x="309" y="-67.8" font-family="Times,serif" font-size="14.00" fill="gray">xception</text>
 </g>
-<!-- \\EventsForce\\Exceptions\\EmptyResponseException&#45;&gt;\\Exception -->
-<g id="edge2" class="edge"><title>\\EventsForce\\Exceptions\\EmptyResponseException&#45;&gt;\\Exception</title>
-<path fill="none" stroke="black" d="M497.111,-329.901C491.79,-327.318 486.688,-324.368 482,-321 399.795,-261.94 343.906,-150.751 321.282,-99.3428"/>
+<!-- \\EventsForce\\Exceptions\\ResourceNotFound&#45;&gt;\\Exception -->
+<g id="edge2" class="edge"><title>\\EventsForce\\Exceptions\\ResourceNotFound&#45;&gt;\\Exception</title>
+<path fill="none" stroke="black" d="M516.003,-337.421C504.035,-333.535 492.066,-328.232 482,-321 399.795,-261.94 343.906,-150.751 321.282,-99.3428"/>
 <polygon fill="none" stroke="black" points="324.379,-97.6857 317.202,-89.8913 317.952,-100.46 324.379,-97.6857"/>
 </g>
+<!-- \\EventsForce\\Exceptions\\EmptyResponseException -->
+<g id="node11" class="node"><title>\\EventsForce\\Exceptions\\EmptyResponseException</title>
+<polygon fill="none" stroke="black" points="657.724,-312 496.276,-312 496.276,-276 657.724,-276 657.724,-312"/>
+<text text-anchor="middle" x="577" y="-290.7" font-family="Courier,monospace" font-size="11.00">EmptyResponseException</text>
+</g>
+<!-- \\EventsForce\\Exceptions\\EmptyResponseException&#45;&gt;\\Exception -->
+<g id="edge3" class="edge"><title>\\EventsForce\\Exceptions\\EmptyResponseException&#45;&gt;\\Exception</title>
+<path fill="none" stroke="black" d="M498.981,-275.9C493.048,-273.309 487.31,-270.358 482,-267 411.263,-222.272 352.773,-140.056 325.891,-98.109"/>
+<polygon fill="none" stroke="black" points="328.789,-96.144 320.492,-89.5565 322.87,-99.8808 328.789,-96.144"/>
+</g>
 <!-- \\EventsForce\\Exceptions\\InvalidArgumentException -->
-<g id="node11" class="node"><title>\\EventsForce\\Exceptions\\InvalidArgumentException</title>
+<g id="node12" class="node"><title>\\EventsForce\\Exceptions\\InvalidArgumentException</title>
 <polygon fill="none" stroke="black" points="664.426,-258 489.574,-258 489.574,-222 664.426,-222 664.426,-258"/>
 <text text-anchor="middle" x="577" y="-236.7" font-family="Courier,monospace" font-size="11.00">InvalidArgumentException</text>
 </g>
@@ -139,28 +149,18 @@
 <text text-anchor="middle" x="309" y="-13.8" font-family="Times,serif" font-size="14.00" fill="gray">\InvalidArgumentException</text>
 </g>
 <!-- \\EventsForce\\Exceptions\\InvalidArgumentException&#45;&gt;\\InvalidArgumentException -->
-<g id="edge3" class="edge"><title>\\EventsForce\\Exceptions\\InvalidArgumentException&#45;&gt;\\InvalidArgumentException</title>
+<g id="edge6" class="edge"><title>\\EventsForce\\Exceptions\\InvalidArgumentException&#45;&gt;\\InvalidArgumentException</title>
 <path fill="none" stroke="black" d="M489.615,-223.764C486.938,-222.023 484.387,-220.107 482,-218 420.538,-163.746 479.051,-99.7152 418,-45 413.183,-40.6829 407.779,-37.033 402.025,-33.9499"/>
 <polygon fill="none" stroke="black" points="403.265,-30.6646 392.728,-29.5568 400.274,-36.9936 403.265,-30.6646"/>
 </g>
 <!-- \\EventsForce\\Exceptions\\EventsForceException -->
-<g id="node12" class="node"><title>\\EventsForce\\Exceptions\\EventsForceException</title>
-<polygon fill="none" stroke="black" points="651.021,-312 502.979,-312 502.979,-276 651.021,-276 651.021,-312"/>
-<text text-anchor="middle" x="577" y="-290.7" font-family="Courier,monospace" font-size="11.00">EventsForceException</text>
+<g id="node13" class="node"><title>\\EventsForce\\Exceptions\\EventsForceException</title>
+<polygon fill="none" stroke="black" points="651.021,-420 502.979,-420 502.979,-384 651.021,-384 651.021,-420"/>
+<text text-anchor="middle" x="577" y="-398.7" font-family="Courier,monospace" font-size="11.00">EventsForceException</text>
 </g>
 <!-- \\EventsForce\\Exceptions\\EventsForceException&#45;&gt;\\Exception -->
-<g id="edge4" class="edge"><title>\\EventsForce\\Exceptions\\EventsForceException&#45;&gt;\\Exception</title>
-<path fill="none" stroke="black" d="M502.854,-277.532C495.55,-274.566 488.458,-271.083 482,-267 411.263,-222.272 352.773,-140.056 325.891,-98.109"/>
-<polygon fill="none" stroke="black" points="328.789,-96.144 320.492,-89.5565 322.87,-99.8808 328.789,-96.144"/>
-</g>
-<!-- \\EventsForce\\Exceptions\\ResourceNotFound -->
-<g id="node13" class="node"><title>\\EventsForce\\Exceptions\\ResourceNotFound</title>
-<polygon fill="none" stroke="black" points="637.618,-420 516.382,-420 516.382,-384 637.618,-384 637.618,-420"/>
-<text text-anchor="middle" x="577" y="-398.7" font-family="Courier,monospace" font-size="11.00">ResourceNotFound</text>
-</g>
-<!-- \\EventsForce\\Exceptions\\ResourceNotFound&#45;&gt;\\Exception -->
-<g id="edge6" class="edge"><title>\\EventsForce\\Exceptions\\ResourceNotFound&#45;&gt;\\Exception</title>
-<path fill="none" stroke="black" d="M515.99,-392.251C503.89,-388.31 491.871,-382.774 482,-375 387.634,-300.682 336.174,-159.345 317.836,-99.6786"/>
+<g id="edge7" class="edge"><title>\\EventsForce\\Exceptions\\EventsForceException&#45;&gt;\\Exception</title>
+<path fill="none" stroke="black" d="M502.878,-387.269C495.405,-383.972 488.269,-379.937 482,-375 387.634,-300.682 336.174,-159.345 317.836,-99.6786"/>
 <polygon fill="none" stroke="black" points="321.113,-98.4206 314.889,-89.8466 314.408,-100.431 321.113,-98.4206"/>
 </g>
 <!-- \\EventsForce\\Request -->

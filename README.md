@@ -210,8 +210,21 @@ $client->payments
 #### Return values ####
 ------
 
-The methods will always return a JSON string similar to the below:
+The methods return a response object - http://guzzle3.readthedocs.org/http-client/response.html
+You can get the body of the response by calling:
+```php
+$body = $response->getBody();
+```
 
+You can also get the status code:
+```php
+$status_code = $response->getStatusCode();
+```
+
+There are lots of other helpers that can be seen here: http://guzzle3.readthedocs.org/http-client/response.html
+
+
+Example JSON output:
 ``` JSON
 {
   "responseCode": 200,

@@ -195,8 +195,6 @@ class Request
             throw new EmptyResponseException('No content in response from API');
         }
 
-        $body = $response->getBody();
-
-        return $body;
+        return $response;
     }
 }
