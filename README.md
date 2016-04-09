@@ -142,6 +142,7 @@ $client->people
     ->get(99);
 ```
 
+------
 
 #### Invoices - http://docs.eventsforce.apiary.io/#reference/invoices ####
 
@@ -174,26 +175,22 @@ $client->invoices
     ->updateExternalRef(1, 'EF123456');
 ```
 
+------
+
+#### Payments - http://docs.eventsforce.apiary.io/#reference/payments ####
+
+#####[Get all payments for an invoice - /invoices/{invoice_number}/payments.json](http://docs.eventsforce.apiary.io/#reference/payments/invoicesinvoicenumberpaymentsjson/get)#####
+```php
+$client->payments
+    ->setInvoice(2)
+    ->getAll();
+```
+
+
 
 OLD DOCS BELOW:
 -----
 
-
-
-
-### Session Methods
----
-
-### Payment Methods
----
-
-
-#### Get Payments
-This gets all payments under a specific invoice number (taken via mandatory parameter)
-
-``` php
-$payments = $ef->get_payments(1);
-```
 
 #### Get Payment
 This gets info on a specific payment via mandatory invoicenumber and paymentid (respectively)
