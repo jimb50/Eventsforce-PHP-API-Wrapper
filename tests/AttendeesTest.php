@@ -151,7 +151,8 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
             array(array(), ''),
             array(-1, array()),
             array(new stdClass(), array()),
-            array(1, new stdClass())
+            array(1, new stdClass()),
+            array(1, array())
         );
     }
 
@@ -212,7 +213,7 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
      */
     public function testNotSetEventIdUpdate()
     {
-        $this->client->attendees->update(2);
+        $this->client->attendees->update(2, array('test'));
     }
     /**
      * @expectedException \EventsForce\Exceptions\EventsForceException

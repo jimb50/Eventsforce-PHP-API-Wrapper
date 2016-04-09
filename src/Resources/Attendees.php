@@ -63,7 +63,6 @@ class Attendees extends EventBasedResource
      * @param bool $attendee_id
      * @param array $data
      * @return \Psr\Http\Message\StreamInterface
-     * @throws EventsForceException
      * @throws \EventsForce\Exceptions\EmptyResponseException
      */
     public function update($attendee_id = false, $data = [])
@@ -72,8 +71,8 @@ class Attendees extends EventBasedResource
             throw new InvalidArgumentException('You need to pass a positive numeric value as an attendee id');
         }
 
-        if (!is_array($data)) {
-            throw new InvalidArgumentException('You need to pass an array for data to update the attendee with');
+        if (!is_array($data) || empty($data)) {
+            throw new InvalidArgumentException('You need to pass a not empty array for data to update the attendee with');
         }
 
         $request = $this->client->request([

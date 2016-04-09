@@ -87,6 +87,7 @@ $client->attendees
 ```
 
 #####[Update an attendee - /events/{event_id}/attendees/{attendee_id}.json?_HttpMethod=PATCH](http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeespersonidjsonhttpmethodpatch/post)#####
+Needs testing with a full access api, not just the example
 ```php
 $client->attendees
     ->setEvent(1)
@@ -161,6 +162,17 @@ $client->invoices
     ->get(1);
 ```
 
+#####[Update an invoice - /invoices/{invoice_number}.json?_HttpMethod=PATCH](http://docs.eventsforce.apiary.io/#reference/invoices/invoicesinvoicenumberjson/post)#####
+Needs testing with a full access api, not just the example
+```php
+$client->invoices
+    ->update(1, [
+        'externalInvoiceReference' => 'EF123456'
+    ]);
+// Because EventsForce have only opened one field to be updated on an invoice this method has a helper as below:
+$client->invoices
+    ->updateExternalRef(1, 'EF123456');
+```
 
 
 OLD DOCS BELOW:
@@ -171,46 +183,6 @@ OLD DOCS BELOW:
 
 ### Session Methods
 ---
-
-
-### Person Methods
----
-
-
-#### Get Person
-This takes a mandatory person ID, this differs to attendees as is not linked to an event and just returns info on a person who is stored in the database
-
-``` php
-$person = $ef->get_person(6);
-```
-
-
-### Invoice Methods
----
-
-
-#### Get Invoices
-This returns up to 1000 invoice records (not linked to specific event)
-It also takes an optional invoice number parameter which tells the method where to start getting invoice records from
-
-``` php
-$invoices = $ef->get_invoices();
-```
-
-#### Get Invoice
-This gets a single invoice record via a mandatory invoice number parameter
-
-``` php
-$invoice = $ef->get_invoice(1);
-```
-
-#### Set Invoice External Reference
-This will update an invoice external reference by taking an invoice number and new external reference string as parameters
-
-``` php
-$extRefUpdate = $ef->set_invoice_ext_ref(1,'');
-```
-
 
 ### Payment Methods
 ---
