@@ -186,6 +186,17 @@ $client->payments
     ->getAll();
 ```
 
+#####[Post a payment against an invoice /invoices/{invoice_number}/payments.json](http://docs.eventsforce.apiary.io/#reference/payments/invoicesinvoicenumberpaymentsjson/post)#####
+Needs testing with a full access api, not just the example
+```php
+$client->payments
+    ->setInvoice(2)
+    ->setPostDefault('currencyCode', 'GBP') // you can use setPostDefault to set a default payment parameter, this allows you to set default then post multiple payments using similar details
+    ->setPostDefault('comment', 'Made by My Application') // set a default comment for all future payments
+    ->post(['amount' => 29.99]); // post one payment
+$client->payments
+    ->post(['amount' => 27.79]); // post another
+```
 
 
 OLD DOCS BELOW:

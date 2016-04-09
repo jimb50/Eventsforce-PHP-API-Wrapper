@@ -71,7 +71,7 @@ abstract class BaseResource
      *
      * @return array
      */
-    protected function argsMerge($args, $defaults)
+    public function argsMerge($args, $defaults)
     {
         if ($args == null)
             $args = array();

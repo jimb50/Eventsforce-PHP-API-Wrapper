@@ -65,14 +65,6 @@ class PaymentsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('invoices/2/test.json', $endpoint);
     }
 
-    /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testGenEndpointFailingOnBoolInput()
-    {
-        $this->client->payments->genEndpoint(true);
-    }
-
     public function testPostDefault()
     {
         $post_defaults = $this->client->payments->post_defaults;
@@ -111,6 +103,48 @@ class PaymentsTest extends PHPUnit_Framework_TestCase
             array(new stdClass(), 'adsdsad'),
             array('notvalid', 'asdasd'),
             array(array(), 'dasda')
+        );
+    }
+
+    /**
+     * @expectedException EventsForce\Exceptions\EventsForceException
+     */
+    public function testPostNotSetInvoiceIdData()
+    {
+        $this->client->payments->post(['amount' => 27.99]);
+    }
+
+    /**
+     * @expectedException EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testPostEmptyData()
+    {
+        $this->client->payments->post();
+    }
+
+    /**
+     * @dataProvider invalidPostInput
+     * @expectedException EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testPostInvalidData($data)
+    {
+        $this->client->payments->post($data);
+    }
+
+    public function invalidPostInput()
+    {
+        return array(
+            array(''),
+            array(new stdClass()),
+            array(true),
+            array(false),
+            array(array()),
+            array(array('amount' => 0)),
+            array(array('test' => 10)),
+            array(array('amount' => 'test')),
+            array(array('amount' => true)),
+            array(array('amount' => new stdClass())),
+            array(array('amount' => array('test')))
         );
     }
 }

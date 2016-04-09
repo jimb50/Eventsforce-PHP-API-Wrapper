@@ -9,14 +9,6 @@ class EventsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testGenEndpointFailingOnBoolInput()
-    {
-        $this->client->events->genEndpoint(true);
-    }
-
-    /**
      * @expectedException \EventsForce\Exceptions\InvalidArgumentException
      */
     public function testEmptyQueryGet()

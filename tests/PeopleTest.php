@@ -9,14 +9,6 @@ class PeopleTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testGenEndpointFailingOnBoolInput()
-    {
-        $this->client->people->genEndpoint(true);
-    }
-
-    /**
      * @expectedException \EventsForce\Exceptions\InvalidArgumentException
      */
     public function testEmptyQueryGet()

@@ -67,6 +67,8 @@ class Payments extends InvoiceBasedResource
 
     /**
      * Method to post a payment against an invoice
+     * THIS NEEDS TESTING WITH A FULL ACCESS API
+     *
      * @param array $data
      * @return \Psr\Http\Message\StreamInterface
      * @throws \EventsForce\Exceptions\EmptyResponseException
@@ -75,12 +77,24 @@ class Payments extends InvoiceBasedResource
      */
     public function post($data = [])
     {
-        if (!is_array($data) || empty($data)) {
+        if (!is_array($data)) {
             throw new InvalidArgumentException('You must pass data as a non empty array to post a payment');
         }
 
         // merge post defaults with passed in data
         $data = $this->argsMerge($data, $this->post_defaults);
+
+        // ensure an amount is set and is not 0
+        if (
+            !isset($data['amount']) ||
+            empty($data['amount']) ||
+            !is_numeric($data['amount'])
+        ) {
+            throw new InvalidArgumentException('You must pass a numeric amount greater than 0 to post a payment against an invoice');
+        }
+
+        // cast to float
+        $data['amount'] = floatval($data['amount']);
 
         $request = $this->client->request([
             'endpoint' => $this->genEndpoint([$this->getInvoiceId(), 'payments.json'])
@@ -89,6 +103,8 @@ class Payments extends InvoiceBasedResource
         $request
             ->setMethod('POST')
             ->setJson($data);
+
+        dump($request);
 
         return $request->send();
     }

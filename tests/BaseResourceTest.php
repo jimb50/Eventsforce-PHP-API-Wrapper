@@ -1,4 +1,48 @@
 <?php
-// TODO: Base resource tests
-// Tests: args merge test, genEndpoint (remove from other tests)
-// also test other base resources (invoices and events) and their associated methods, remove tests from other test files
+class BaseResourceTest extends PHPUnit_Framework_TestCase
+{
+    protected $client;
+
+    public function setUp()
+    {
+        $this->client = new EventsForce\Client('client_slug', 'apikey');
+    }
+
+    public function testArgsMerge()
+    {
+
+        $defaults = [
+            'key1' => 'value1',
+            'key2' => 'value2',
+            'key3' => 'value3'
+        ];
+        $args = [
+            'key1' => 'value1new',
+            'key4' => 'value4'
+        ];
+        $merged = $this->client->events->argsMerge($args, $defaults);
+        $expected = [
+            'key1' => 'value1new',
+            'key2' => 'value2',
+            'key3' => 'value3',
+            'key4' => 'value4'
+        ];
+        $this->assertEquals($expected, $merged);
+    }
+
+    /**
+     * @expectedException EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testGenEndpointFailingOnBoolInput()
+    {
+        $this->client->events->genEndpoint(true);
+    }
+
+    /**
+     * @expectedException EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testGenEndpointFailingOnClassInput()
+    {
+        $this->client->events->genEndpoint(new stdClass());
+    }
+}
