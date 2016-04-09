@@ -104,8 +104,6 @@ class Payments extends InvoiceBasedResource
             ->setMethod('POST')
             ->setJson($data);
 
-        dump($request);
-
         return $request->send();
     }
 }
