@@ -54,6 +54,12 @@ abstract class BaseResource
             $suffix = implode('/', $suffix);
         }
 
-        return $this->endpoint_prefix . '/' . $suffix;
+        if (!empty($this->endpoint_prefix)) {
+            $endpoint = $this->endpoint_prefix . '/' . $suffix;
+        } else {
+            $endpoint = $suffix;
+        }
+
+        return $endpoint;
     }
 }

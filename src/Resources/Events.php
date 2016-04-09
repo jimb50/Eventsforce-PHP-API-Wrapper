@@ -42,7 +42,7 @@ class Events extends BaseResource
         }
 
         $request = $this->client->request([
-            'endpoint' => 'events/' . $id . '.json'
+            'endpoint' => $this->genEndpoint(['events', $id . '.json'])
         ]);
 
         return $request->send();
