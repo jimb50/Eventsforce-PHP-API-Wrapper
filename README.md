@@ -142,6 +142,19 @@ $client->people
 ```
 
 
+#### Invoices - http://docs.eventsforce.apiary.io/#reference/invoices ####
+
+#####[Get all invoices - /invoices.json](http://docs.eventsforce.apiary.io/#reference/invoices/invoicesjsoninvoicenumberafter/get)#####
+Can have an optional invoiceNumberAfter parameter which will return the items with id's from that point, defaults to 0
+```php
+$client->invoices
+    ->getAll();
+
+// or with parameter
+$client->invoices
+    ->getAll(1);
+```
+
 
 OLD DOCS BELOW:
 -----

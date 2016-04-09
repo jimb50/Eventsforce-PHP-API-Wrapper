@@ -19,6 +19,7 @@ class EventsForceClientTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('EventsForce\Resources\EventBasedResource', $this->client->attendees);
         $this->assertInstanceOf('EventsForce\Resources\EventBasedResource', $this->client->sessions);
         $this->assertInstanceOf('EventsForce\Resources\BaseResource', $this->client->people);
+        $this->assertInstanceOf('EventsForce\Resources\BaseResource', $this->client->invoices);
     }
 
     public function testResourcesInstances()
@@ -27,5 +28,6 @@ class EventsForceClientTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('EventsForce\Resources\Attendees', $this->client->attendees);
         $this->assertInstanceOf('EventsForce\Resources\Sessions', $this->client->sessions);
         $this->assertInstanceOf('EventsForce\Resources\People', $this->client->people);
+        $this->assertInstanceOf('EventsForce\Resources\Invoices', $this->client->invoices);
     }
 }

@@ -59,7 +59,9 @@ class RequestTest extends PHPUnit_Framework_TestCase
             array(true),
             array(false),
             array(array('GET')),
-            array(array())
+            array(array()),
+            array(1),
+            array(-1)
         );
     }
 }

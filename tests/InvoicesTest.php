@@ -1,5 +1,5 @@
 <?php
-class EventsTest extends PHPUnit_Framework_TestCase
+class InvoicesTest extends PHPUnit_Framework_TestCase
 {
     protected $client;
 
@@ -13,24 +13,16 @@ class EventsTest extends PHPUnit_Framework_TestCase
      */
     public function testGenEndpointFailingOnBoolInput()
     {
-        $this->client->events->genEndpoint(true);
-    }
-
-    /**
-     * @expectedException \EventsForce\Exceptions\InvalidArgumentException
-     */
-    public function testEmptyQueryGet()
-    {
-        $this->client->events->get();
+        $this->client->invoices->genEndpoint(true);
     }
 
     /**
      * @dataProvider invalidQueryGetProvider
      * @expectedException \EventsForce\Exceptions\InvalidArgumentException
      */
-    public function testInvalidQueryGet($value)
+    public function testInvalidQueryGet($after)
     {
-        $this->client->events->get($value);
+        $this->client->invoices->getAll($after);
     }
 
     public function invalidQueryGetProvider()

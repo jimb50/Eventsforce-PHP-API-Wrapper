@@ -40,7 +40,8 @@ class PeopleTest extends PHPUnit_Framework_TestCase
             array(false),
             array(''),
             array('test'),
-            array(-1)
+            array(-1),
+            array(array())
         );
     }
 }
