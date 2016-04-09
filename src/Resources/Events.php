@@ -37,7 +37,7 @@ class Events extends BaseResource
      */
     public function get($id = false)
     {
-        if (!is_numeric($id)) {
+        if (!is_numeric($id) || 0 > $id) {
             throw new InvalidArgumentException('You need to pass a numeric value for the event id');
         }
 
