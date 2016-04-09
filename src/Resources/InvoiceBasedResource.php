@@ -1,0 +1,60 @@
+<?php
+
+namespace EventsForce\Resources;
+use EventsForce\Exceptions\EventsForceException;
+use EventsForce\Exceptions\InvalidArgumentException;
+
+/**
+ * Abstract Class InvoiceBasedResource
+ * Abstract used by resources that depend upon an invoice
+ * E.g Payments
+ * // TODO: Improve the way the inherited resources work
+ *
+ * @package EventsForce\Resources
+ */
+abstract class InvoiceBasedResource extends BaseResource
+{
+    /**
+     * Invoice id which we'll be looking in
+     *
+     * @var int
+     */
+    protected $invoice;
+
+    /**
+     * Endpoint prefix
+     *
+     * @var string
+     */
+    protected $endpoint_prefix = 'invoices';
+
+    /**
+     * Method to set the current invoice we're looking up in
+     *
+     * @param bool $invoice_id
+     * @return $this
+     * @throws InvalidArgumentException
+     */
+    public function setInvoice($invoice_id = false)
+    {
+        if (!is_numeric($invoice_id) || $invoice_id < 0) {
+            throw new InvalidArgumentException('You need to pass a positive integer invoice id');
+        }
+        $this->invoice = $invoice_id;
+
+        return $this;
+    }
+
+    /**
+     * Getter for invoice id
+     * @return int
+     * @throws EventsForceException
+     */
+    public function getInvoiceId()
+    {
+        if (!is_numeric($this->invoice)) {
+            throw new EventsForceException('You must set an invoice ID using ->setEvent({invoice_id}) prior to using this method');
+        }
+        return $this->invoice;
+    }
+}

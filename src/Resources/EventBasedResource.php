@@ -5,13 +5,13 @@ use EventsForce\Exceptions\EventsForceException;
 use EventsForce\Exceptions\InvalidArgumentException;
 
 /**
- * Class BaseResource
+ * Abstract Class EventBasedResource
  * Abstract used by resources that depend upon an event
  * e.g Attendees / Sessions
  *
  * @package EventsForce\Resources
  */
-class EventBasedResource extends BaseResource
+abstract class EventBasedResource extends BaseResource
 {
 	/**
      * Event id which we'll be looking in

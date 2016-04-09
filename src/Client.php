@@ -8,6 +8,7 @@ use EventsForce\Resources\Events;
 use EventsForce\Resources\People;
 use EventsForce\Resources\Sessions;
 use EventsForce\Resources\Invoices;
+use EventsForce\Resources\Payments;
 use GuzzleHttp\Client as GuzzleClient;
 
 /**
@@ -93,6 +94,13 @@ class Client
      */
     public $invoices;
 
+    /**
+     * Instance of Payments resource class \EventsForce\Resources\Payments
+     *
+     * @var object
+     */
+    public $payments;
+
 
 
     /**
@@ -138,6 +146,7 @@ class Client
         $this->sessions = new Sessions($this);
         $this->people = new People($this);
         $this->invoices = new Invoices($this);
+        $this->payments = new Payments($this);
     }
 
     /**
