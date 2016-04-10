@@ -1,5 +1,5 @@
 {
-    "name": "jbarnard/efapiwrap",
+    "name": "jrbarnard/efapiwrap",
     "description": "Api wrapper for the EventsForce API for PHP",
     "license": "MIT",
     "authors": [
