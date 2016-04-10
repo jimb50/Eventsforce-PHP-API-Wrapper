@@ -3,7 +3,7 @@
 namespace EventsForce;
 
 use EventsForce\Exceptions\ResourceNotFound;
-use EventsForce\Exceptions\EventsForceException;
+use EventsForce\Exceptions\Exception;
 use EventsForce\Exceptions\EmptyResponseException;
 use EventsForce\Exceptions\InvalidArgumentException;
 use GuzzleHttp\Client as GuzzleClient;
@@ -127,7 +127,7 @@ class Request
      *
      * @param string $method
      * @return $this
-     * @throws EventsForceException
+     * @throws Exception
      */
     public function setMethod($method = '')
     {
@@ -137,7 +137,7 @@ class Request
         $method = strtoupper($method);
 
         if (!in_array($method, self::$allowedMethods)) {
-            throw new EventsForceException('Only the following request methods are allowed: ' . implode(', ', self::$allowedMethods));
+            throw new Exception('Only the following request methods are allowed: ' . implode(', ', self::$allowedMethods));
         }
 
         $this->method = $method;

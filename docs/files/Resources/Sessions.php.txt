@@ -2,7 +2,7 @@
 
 namespace EventsForce\Resources;
 
-use EventsForce\Exceptions\EventsForceException;
+use EventsForce\Exceptions\Exception;
 use EventsForce\Exceptions\InvalidArgumentException;
 
 /**

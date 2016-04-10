@@ -3,6 +3,12 @@
 namespace EventsForce\Resources;
 use EventsForce\Exceptions\InvalidArgumentException;
 
+/**
+ * Class for handling payments resource
+ * Api docs: http://docs.eventsforce.apiary.io/#reference/payments
+ *
+ * @package EventsForce\Resources
+ */
 class Payments extends InvoiceBasedResource
 {
 
