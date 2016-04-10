@@ -2,6 +2,8 @@
     "name": "jrbarnard/efapiwrap",
     "description": "Api wrapper for the EventsForce API for PHP",
     "license": "MIT",
+    "keywords": ["PHP","Events Force","API Client"],
+    "homepage": "https://github.com/jrbarnard/efapiphp",
     "authors": [
         {
             "name": "James Barnard",
