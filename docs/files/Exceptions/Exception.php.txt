@@ -1,0 +1,12 @@
+<?php
+
+namespace EventsForce\Exceptions;
+
+/**
+ * Class Exception
+ * @package EventsForce\Exceptions
+ */
+class Exception extends \Exception
+{
+    // TODO: Define standard extended exception
+}

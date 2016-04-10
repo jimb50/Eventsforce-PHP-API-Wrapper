@@ -1,0 +1,29 @@
+{
+    "name": "jrbarnard/efapiwrap",
+    "description": "Api wrapper for the EventsForce API for PHP",
+    "license": "MIT",
+    "keywords": ["PHP","Events Force","API Client"],
+    "homepage": "https://github.com/jrbarnard/efapiphp",
+    "authors": [
+        {
+            "name": "James Barnard",
+            "email": "james.r.barnard@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "^6.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "phpdocumentor/phpdocumentor": "^2.8",
+        "filp/whoops": "^2.1",
+        "symfony/var-dumper": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "EventsForce\\": "src/"
+        }
+    }
+}
