@@ -5,14 +5,38 @@ An API client package for the Events Force API.
 For reference to what kind of data you can pass to the API methods refer to the general [API documentation](http://docs.eventsforce.apiary.io/#reference).
 To get a client slug / client account string see [here](http://docs.eventsforce.apiary.io/#introduction/url)
 
-Requirements
+Contents
+------
+
+1. [Requirements](#requirements)
+2. [Installation](#install)
+3. [Initializing](#init)
+4. [Full usage](#usage)
+    - [Events](#events-usage)
+    - [Attendees](#attendees-usage)
+    - [Sessions](#sessions-usage)
+    - [People](#people-usage)
+    - [Invoices](#invoices-usage)
+    - [Payments](#payments-usage)
+5. [Responses](#response)
+6. [Contributing](#contrib)
+7. [Licence](#licence)
+
+
+<a name=requirements>Requirements</a>
 ------
 
 * PHP >= 5.5.0
 * [Guzzle](https://github.com/guzzle/guzzle)
 
+<a name=install>Installation</a>
+------
 
-Usage - General
+```
+composer require jbarnard/efapiphp
+```
+
+<a name=init>Initializing and basic usage of the client</a>
 ------
 
 Note: The follow examples all use the apiexample credentials as shown [here](http://docs.eventsforce.apiary.io/#introduction/example-data)
@@ -32,10 +56,11 @@ $stream = $client->events->getAll();
 
 The response is a \Psr\Http\Message\StreamInterface
 
-Usage - Full method map
+<a name=usage>Usage - Full method map</a>
 ------
 
-#### Events - http://docs.eventsforce.apiary.io/#reference/events####
+#### <a name=events-usage>Events</a> - http://docs.eventsforce.apiary.io/#reference/events ####
+------
 
 #####[Get all - /events.json](http://docs.eventsforce.apiary.io/#reference/events/eventsjson/get)#####
 ```php
@@ -47,9 +72,8 @@ $client->events->getAll();
 $client->events->get(2); // where 2 is the event id
 ```
 
+#### <a name=attendees-usage>Attendees</a> - http://docs.eventsforce.apiary.io/#reference/attendees ####
 ------
-
-#### Attendees - http://docs.eventsforce.apiary.io/#reference/attendees ####
 
 #####[Get all attendees for an event - /events/{event_id}/attendees.json](http://docs.eventsforce.apiary.io/#reference/attendees/eventseventidattendeesjsonlastmodifiedafterpaymentstatuscategoryregistrationstatus/get)#####
 Available parameters:
@@ -113,10 +137,8 @@ $client->attendees
     ->auth('aliquet@mauris.co.uk', 'DWS7C6Z');
 ```
 
-
+#### <a name=sessions-usage>Sessions</a> - http://docs.eventsforce.apiary.io/#reference/sessions ####
 ------
-
-#### Sessions - http://docs.eventsforce.apiary.io/#reference/sessions ####
 
 #####[Get all sessions for an event - /events/{event_id}/sessions.json](http://docs.eventsforce.apiary.io/#reference/sessions/eventseventidsessionsjson/get)#####
 ```php
@@ -132,9 +154,8 @@ $client->sessions
     ->get(17);
 ```
 
+#### <a name=people-usage>People</a> - http://docs.eventsforce.apiary.io/#reference/people ####
 ------
-
-#### People - http://docs.eventsforce.apiary.io/#reference/people ####
 
 #####[Get a single person - /people/{person_id}.json](http://docs.eventsforce.apiary.io/#reference/people/get)#####
 ```php
@@ -142,9 +163,9 @@ $client->people
     ->get(99);
 ```
 
+#### <a name=invoices-usage>Invoices</a> - http://docs.eventsforce.apiary.io/#reference/invoices ####
 ------
 
-#### Invoices - http://docs.eventsforce.apiary.io/#reference/invoices ####
 
 #####[Get all invoices - /invoices.json](http://docs.eventsforce.apiary.io/#reference/invoices/invoicesjsoninvoicenumberafter/get)#####
 Can have an optional invoiceNumberAfter parameter which will return the items with id's from that point, defaults to 0
@@ -175,9 +196,8 @@ $client->invoices
     ->updateExternalRef(1, 'EF123456');
 ```
 
+#### <a name=payments-usage>Payments</a> - http://docs.eventsforce.apiary.io/#reference/payments ####
 ------
-
-#### Payments - http://docs.eventsforce.apiary.io/#reference/payments ####
 
 #####[Get all payments for an invoice - /invoices/{invoice_number}/payments.json](http://docs.eventsforce.apiary.io/#reference/payments/invoicesinvoicenumberpaymentsjson/get)#####
 ```php
@@ -207,7 +227,7 @@ $client->payments
 ```
 
 
-#### Return values ####
+<a name=responses>Return values</a>
 ------
 
 The methods return a response object - http://guzzle3.readthedocs.org/http-client/response.html
@@ -221,7 +241,7 @@ You can also get the status code:
 $status_code = $response->getStatusCode();
 ```
 
-There are lots of other helpers that can be seen here: http://guzzle3.readthedocs.org/http-client/response.html
+There are other helpers that can be seen here: http://guzzle3.readthedocs.org/http-client/response.html
 
 
 Example JSON output:
@@ -255,8 +275,32 @@ Example JSON output:
 }
 ```
 
+<a name=contrib>Contributing</a>
+------
+1. Fork the repo and clone locally
+2. Branch off of master with the following naming convention:
+    - If a feature, name as feature/descriptive-name e.g:
+    ```
+    git branch -b feature/new-people-set-method
+    ```
+    - If a bugfix, name as bugfix/{issue_number (if exists, else descriptive name) e.g
+    ```
+    git branch -b bugfix/299
+    #or
+    git branch -b bugfix/issue-with-404
+    ```
+3. Do work, commit and push branch
+4. Create a pull request on GitHub
 
-Licence
+
+<a name=licence>Licence</a>
 ------
 
-https://opensource.org/licenses/MIT
+[The MIT License (MIT)](https://opensource.org/licenses/MIT)
+Copyright (c) 2016 James Barnard
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

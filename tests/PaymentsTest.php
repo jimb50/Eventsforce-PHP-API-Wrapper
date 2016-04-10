@@ -15,7 +15,7 @@ class PaymentsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException EventsForce\Exceptions\EventsForceException
+     * @expectedException EventsForce\Exceptions\Exception
      */
     public function testNotAllowingYouToGetInvoiceIdIfNoInvoiceIdSet()
     {
@@ -107,7 +107,7 @@ class PaymentsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException EventsForce\Exceptions\EventsForceException
+     * @expectedException EventsForce\Exceptions\Exception
      */
     public function testPostNotSetInvoiceIdData()
     {

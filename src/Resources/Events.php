@@ -16,7 +16,7 @@ class Events extends BaseResource
      * Api Docs: http://docs.eventsforce.apiary.io/#reference/events/eventsjson/get
      * 
      * @return \Psr\Http\Message\StreamInterface
-     * @throws \EventsForce\Exceptions\EventsForceException
+     * @throws \EventsForce\Exceptions\Exception
      */
     public function getAll()
     {

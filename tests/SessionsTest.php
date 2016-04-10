@@ -15,7 +15,7 @@ class SessionsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException EventsForce\Exceptions\EventsForceException
+     * @expectedException EventsForce\Exceptions\Exception
      */
     public function testNotAllowingYouToGetEventIdIfNoEventIdSet()
     {
@@ -96,7 +96,7 @@ class SessionsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \EventsForce\Exceptions\EventsForceException
+     * @expectedException \EventsForce\Exceptions\Exception
      */
     public function testNotSetEventIdGetAll()
     {

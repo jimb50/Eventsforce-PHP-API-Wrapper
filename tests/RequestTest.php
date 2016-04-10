@@ -27,7 +27,7 @@ class RequestTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider notAllowedSetMethodProvider
-     * @expectedException EventsForce\Exceptions\EventsForceException
+     * @expectedException EventsForce\Exceptions\Exception
      */
     public function testSettingMethodFailsWhenSettingNotAllowed($value)
     {

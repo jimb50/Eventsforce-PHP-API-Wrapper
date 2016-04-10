@@ -1,7 +1,7 @@
 <?php
 
 namespace EventsForce\Resources;
-use EventsForce\Exceptions\EventsForceException;
+use EventsForce\Exceptions\Exception;
 use EventsForce\Exceptions\InvalidArgumentException;
 
 /**
@@ -48,12 +48,12 @@ abstract class InvoiceBasedResource extends BaseResource
     /**
      * Getter for invoice id
      * @return int
-     * @throws EventsForceException
+     * @throws Exception
      */
     public function getInvoiceId()
     {
         if (!is_numeric($this->invoice)) {
-            throw new EventsForceException('You must set an invoice ID using ->setEvent({invoice_id}) prior to using this method');
+            throw new Exception('You must set an invoice ID using ->setEvent({invoice_id}) prior to using this method');
         }
         return $this->invoice;
     }

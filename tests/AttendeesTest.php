@@ -15,7 +15,7 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException EventsForce\Exceptions\EventsForceException
+     * @expectedException EventsForce\Exceptions\Exception
      */
     public function testNotAllowingYouToGetEventIdIfNoEventIdSet()
     {
@@ -187,28 +187,28 @@ class AttendeesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \EventsForce\Exceptions\EventsForceException
+     * @expectedException \EventsForce\Exceptions\Exception
      */
     public function testNotSetEventIdGetAll()
     {
         $this->client->attendees->getAll();
     }
     /**
-     * @expectedException \EventsForce\Exceptions\EventsForceException
+     * @expectedException \EventsForce\Exceptions\Exception
      */
     public function testNotSetEventIdGet()
     {
         $this->client->attendees->get(2);
     }
     /**
-     * @expectedException \EventsForce\Exceptions\EventsForceException
+     * @expectedException \EventsForce\Exceptions\Exception
      */
     public function testNotSetEventIdUpdate()
     {
         $this->client->attendees->update(2, array('test'));
     }
     /**
-     * @expectedException \EventsForce\Exceptions\EventsForceException
+     * @expectedException \EventsForce\Exceptions\Exception
      */
     public function testNotSetEventIdAuth()
     {

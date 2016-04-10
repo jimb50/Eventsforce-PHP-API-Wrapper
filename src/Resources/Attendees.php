@@ -96,7 +96,7 @@ class Attendees extends EventBasedResource
      * @param bool $user_id
      * @param bool $password
      * @return \Psr\Http\Message\StreamInterface
-     * @throws EventsForceException
+     * @throws Exception
      * @throws InvalidArgumentException
      */
     public function auth($user_id = false, $password = false)

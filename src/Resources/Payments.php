@@ -40,7 +40,7 @@ class Payments extends InvoiceBasedResource
      * @param bool $payment_id
      * @return \Psr\Http\Message\StreamInterface
      * @throws \EventsForce\Exceptions\EmptyResponseException
-     * @throws \EventsForce\Exceptions\EventsForceException
+     * @throws \EventsForce\Exceptions\Exception
      * @throws \EventsForce\Exceptions\ResourceNotFound
      */
     public function get($payment_id = false)

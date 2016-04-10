@@ -1,7 +1,7 @@
 <?php
 
 namespace EventsForce\Resources;
-use EventsForce\Exceptions\EventsForceException;
+use EventsForce\Exceptions\Exception;
 use EventsForce\Exceptions\InvalidArgumentException;
 
 /**
@@ -47,12 +47,12 @@ abstract class EventBasedResource extends BaseResource
     /**
      * Getter for event id
      * @return int
-     * @throws EventsForceException
+     * @throws Exception
      */
     public function getEventId()
     {
         if (!is_numeric($this->event)) {
-            throw new EventsForceException('You must set an event ID using ->setEvent({event_id}) prior to using this method');
+            throw new Exception('You must set an event ID using ->setEvent({event_id}) prior to using this method');
         }
         return $this->event;
     }

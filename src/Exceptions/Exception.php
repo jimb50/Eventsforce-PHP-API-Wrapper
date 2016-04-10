@@ -3,10 +3,10 @@
 namespace EventsForce\Exceptions;
 
 /**
- * Class EventsForceException
+ * Class Exception
  * @package EventsForce\Exceptions
  */
-class EventsForceException extends \Exception
+class Exception extends \Exception
 {
     // TODO: Define standard extended exception
 }
