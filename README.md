@@ -277,30 +277,11 @@ Example JSON output:
 
 <a name=contrib>Contributing</a>
 ------
-1. Fork the repo and clone locally
-2. Branch off of master with the following naming convention:
-    - If a feature, name as feature/descriptive-name e.g:
-    ```
-    git branch -b feature/new-people-set-method
-    ```
-    - If a bugfix, name as bugfix/{issue_number (if exists, else descriptive name) e.g
-    ```
-    git branch -b bugfix/299
-    #or
-    git branch -b bugfix/issue-with-404
-    ```
-3. Do work, commit and push branch
-4. Create a pull request on GitHub
+
+Found in CONTRIBUTING.md
 
 
 <a name=licence>Licence</a>
 ------
 
-[The MIT License (MIT)](https://opensource.org/licenses/MIT)
-Copyright (c) 2016 James Barnard
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Found in LICENSE file
