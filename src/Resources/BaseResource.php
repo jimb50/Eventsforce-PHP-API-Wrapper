@@ -74,7 +74,7 @@ abstract class BaseResource
     public function argsMerge($args = null, $defaults = null)
     {
         if (!is_array($defaults)) {
-            $defaults = array();
+            $defaults = [];
         }
 
         if (!is_array($args)) {
