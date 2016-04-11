@@ -128,6 +128,7 @@ class Request
      * @param string $method
      * @return $this
      * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function setMethod($method = '')
     {

@@ -71,10 +71,15 @@ abstract class BaseResource
      *
      * @return array
      */
-    public function argsMerge($args, $defaults)
+    public function argsMerge($args = null, $defaults = null)
     {
-        if ($args == null)
-            $args = array();
+        if (!is_array($defaults)) {
+            $defaults = [];
+        }
+
+        if (!is_array($args)) {
+            throw new InvalidArgumentException('You must pass an array as your arguments to merge');
+        }
 
         return array_merge($defaults, $args);
     }

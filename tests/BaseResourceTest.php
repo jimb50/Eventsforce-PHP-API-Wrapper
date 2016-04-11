@@ -45,4 +45,32 @@ class BaseResourceTest extends PHPUnit_Framework_TestCase
     {
         $this->client->events->genEndpoint(new stdClass());
     }
+
+    /**
+     * @expectedException EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testArgsMergeFailingOnEmptyInput()
+    {
+        $this->client->events->argsMerge();
+    }
+
+    /**
+     * @dataProvider argsMergeInvalidInputProvider
+     * @expectedException EventsForce\Exceptions\InvalidArgumentException
+     */
+    public function testArgsMergeFailingOnInvalidInput($args, $defaults)
+    {
+        $this->client->events->argsMerge($args, $defaults);
+    }
+
+    public function argsMergeInvalidInputProvider()
+    {
+        return array(
+            array('', array()),
+            array(new stdClass(), array()),
+            array(true, array()),
+            array(false, array()),
+            array('test', array())
+        );
+    }
 }
