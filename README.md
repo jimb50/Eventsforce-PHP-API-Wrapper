@@ -1,6 +1,8 @@
 PHP API wrapper for the Events Force API
 ======
 
+[![Build Status](https://travis-ci.org/jrbarnard/efapiphp.svg?branch=master)](https://travis-ci.org/jrbarnard/efapiphp)
+
 An API client package for the Events Force API.
 For reference to what kind of data you can pass to the API methods refer to the general [API documentation](http://docs.eventsforce.apiary.io/#reference).
 To get a client slug / client account string see [here](http://docs.eventsforce.apiary.io/#introduction/url)
